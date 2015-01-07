@@ -7,6 +7,7 @@ class Question < ActiveRecord::Base
              foreign_key: :asker_id, primary_key: :id)
 
   has_many :comments, as: :commentable
+  has_many :likes, as: :likeable
 
   has_many(:answers, class_name: 'Answer',
            foreign_key: :question_id, primary_key: :id)

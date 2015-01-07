@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
            foreign_key: :author_id, primary_key: :id)
   has_many(:views, class_name: 'View',
            foreign_key: :viewer_id, primary_key: :id)
+  has_many(:likes, class_name: 'Like',
+           foreign_key: :liker_id, primary_key: :id)
 
   after_initialize :ensure_session_token
 
