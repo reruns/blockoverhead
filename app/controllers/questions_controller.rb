@@ -6,8 +6,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.asker_id = current_user.id
-    if @question.save
-      redirect_to root_url
+    @question.score = 0;
+    @question.views = 1;
+    if @question.save!
+      redirect_to questions_url
     else
       render :new
     end
