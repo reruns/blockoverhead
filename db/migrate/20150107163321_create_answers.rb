@@ -8,5 +8,8 @@ class CreateAnswers < ActiveRecord::Migration
       t.boolean :accepted, default: false
       t.timestamps
     end
+
+    add_index :answers, :responder_id
+    add_index :answers, :question_id
   end
 end
