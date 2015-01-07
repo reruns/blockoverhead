@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   has_many(:likes, class_name: 'Like',
            foreign_key: :liker_id, primary_key: :id)
 
+  has_many :taggings, as: :taggable, dependent: :destroy
+  has_many :tags, through: :taggings
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
