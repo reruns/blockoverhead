@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment.author_id = current_user.id
     @comment.save! #TODO: make this the non-bang version once testing is done.
     #welp
-    redirect_to question_url(@comment.question)
+    redirect_to :back
   end
 
   private

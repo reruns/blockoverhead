@@ -6,11 +6,15 @@ class User < ActiveRecord::Base
 
   has_many(:questions, class_name: 'Question',
            foreign_key: :asker_id, primary_key: :id)
+  has_many(:answers, class_name: 'Answer',
+           foreign_key: :responder_id, primary_key: :id)
+  has_many(:comments, class_name: 'Comment',
+           foreign_key: :author_id, primary_key: :id)
 
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
-    user = User.find(username)
+    user = User.find_by_username(username)
     return nil unless user && user.valid_password?(password)
     user
   end

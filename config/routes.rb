@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :questions, only: [:new, :create, :index, :show]
   post '/answers', to: 'answers#create'
+  post '/comments', to: 'comments#create'
 end

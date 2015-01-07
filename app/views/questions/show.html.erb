@@ -4,11 +4,21 @@
   <%= @question.body %>
 </pre>
 
+<strong>Asked by:</strong> <%= @question.asker.username %>
+
+<%= render "comments/index", commentable: @question %>
+
+<%= render "comments/form", commentable: @question %>
+
 <h2>Answers</h2>
 <% @question.answers.each do |answer| %>
   <pre>
     <%= answer.body %>
   </pre>
+  <strong>Answer by:</strong> <%= answer.responder.username %>
+  
+  <%= render "comments/index", commentable: answer %>
+  <%= render "comments/form", commentable: answer %>
 <% end %>
 
 

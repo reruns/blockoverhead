@@ -1,0 +1,7 @@
+<form action="<%=comments_url%>" method="post">
+  <%= auth_token_input %>
+  <input type="hidden" value='<%=commentable.id%>' name="comment[commentable_id]">
+  <input type="hidden" value='<%=commentable.class%>' name="comment[commentable_type]">
+  <textarea name="comment[body]"></textarea>
+  <input type="submit" value="Comment">
+</form>

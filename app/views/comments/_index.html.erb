@@ -1,0 +1,5 @@
+<% commentable.comments.each do |comment| %>
+  <pre>
+    <%= comment.body %> -<%= comment.author.username %>
+  </pre>
+<% end %>
