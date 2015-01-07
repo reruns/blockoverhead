@@ -13,4 +13,7 @@ class Question < ActiveRecord::Base
            foreign_key: :question_id, primary_key: :id)
   has_many(:views, class_name: 'View',
            foreign_key: :question_id, primary_key: :id)
+
+  has_many :taggings, as: :taggable, dependent: :destroy
+  has_many :tags, through: :taggings
 end
