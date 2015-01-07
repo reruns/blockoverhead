@@ -3,3 +3,18 @@
 <pre>
   <%= @question.body %>
 </pre>
+
+<h2>Answers</h2>
+<% @question.answers.each do |answer| %>
+  <pre>
+    <%= answer.body %>
+  </pre>
+<% end %>
+
+
+<form id="new_answer" action='<%=answers_url%>' method="post">
+  <%= auth_token_input %>
+  <input type="hidden" value='<%=@question.id%>' name="answer[question_id]">
+  <textarea name="answer[body]"></textarea>
+  <input type="submit" value="Answer">
+</form>
