@@ -1,0 +1,21 @@
+<h1>Edit User Info</h1>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= users_url %>" method="post">
+  <%= auth_token_input %>
+  <label>
+    Location
+    <input type="text" name="user[location]" value="">
+  </label>
+
+  <label>
+    Password
+    <input type="password" name="user[password]" value="">
+  </label>
+
+  <input type="submit" value="Submit">
+</form>
+
+<%#TODO confirm password change?%>
+<%#TODO Also maybe add email addresses to users...%>
