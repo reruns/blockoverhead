@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many(:questions, class_name: 'Question',
+           foreign_key: :asker_id, primary_key: :id)
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
