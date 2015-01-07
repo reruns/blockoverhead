@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.score = 0;
     @answer.responder_id = current_user.id
-    @answer.save!
+    @answer.save! #TODO: make this the non-bang version once testing is done.
     #welp
     redirect_to question_url(@answer.question)
   end
