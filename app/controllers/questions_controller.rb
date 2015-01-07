@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @question.asker_id = current_user.id
     @question.score = 0;
     @question.views = 1;
-    if @question.save!
+    if @question.save
       redirect_to questions_url
     else
       render :new
