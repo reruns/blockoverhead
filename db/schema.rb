@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20150107191249) do
   add_index "answers", ["responder_id"], name: "index_answers_on_responder_id", using: :btree
 
   create_table "comments", force: true do |t|
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "author_id"
-    t.string   "body"
+    t.integer  "commentable_id",   null: false
+    t.string   "commentable_type", null: false
+    t.integer  "author_id",        null: false
+    t.string   "body",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

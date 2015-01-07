@@ -7,4 +7,7 @@ class Answer < ActiveRecord::Base
              foreign_key: :responder_id, primary_key: :id)
   belongs_to(:question, class_name: 'Question',
              foreign_key: :question_id, primary_key: :id)
+
+
+  has_many :comments, as: :commentable
 end
