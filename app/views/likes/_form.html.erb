@@ -1,0 +1,8 @@
+<% text = positive==true ? 'Upvote' : 'Downvote' %>
+<form id='upvote' action="<%= likes_url %>" method="post">
+  <%= auth_token_input %>
+  <input type="hidden" name="like[likeable_type]" value="<%= likeable.class %>">
+  <input type="hidden" name="like[likeable_id]" value="<%= likeable.id%>">
+  <input type="hidden" name="like[positive]" value='<%= positive %>'>
+  <input type="submit" value="<%= text %>">
+</form>

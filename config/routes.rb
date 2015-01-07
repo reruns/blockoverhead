@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :questions, only: [:new, :create, :index, :show]
   post '/answers', to: 'answers#create'
   post '/comments', to: 'comments#create'
+  post '/likes', to: 'likes#toggle'
 end
