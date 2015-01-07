@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
            foreign_key: :responder_id, primary_key: :id)
   has_many(:comments, class_name: 'Comment',
            foreign_key: :author_id, primary_key: :id)
+  has_many(:views, class_name: 'View',
+           foreign_key: :viewer_id, primary_key: :id)
 
   after_initialize :ensure_session_token
 
@@ -32,6 +34,15 @@ class User < ActiveRecord::Base
     self.session_id = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_id
+  end
+
+  def view_question(question)
+    view = self.views.find_by_question_id(question.id)
+    if !view
+      view = View.new(question_id: question.id, viewer_id: self.id)
+      view.save!
+      question.view_count += 1
+    end
   end
 
   private

@@ -1,5 +1,7 @@
 <h1><%= @question.title %></h1>
 
+<% current_user.view_question(@question) if signed_in? %>
+
 <pre>
   <%= @question.body %>
 </pre>
@@ -16,7 +18,7 @@
     <%= answer.body %>
   </pre>
   <strong>Answer by:</strong> <%= answer.responder.username %>
-  
+
   <%= render "comments/index", commentable: answer %>
   <%= render "comments/form", commentable: answer %>
 <% end %>

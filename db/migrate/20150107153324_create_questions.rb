@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :asker_id, null: false
       t.string :title, null: false
       t.string :body, null: false
-      t.integer :views, null: false
+      t.integer :view_count, null: false
       t.integer :score, null: false
       t.timestamps
     end

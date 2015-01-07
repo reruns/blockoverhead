@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   #validations
-  validates :title, :asker_id, :body, :score, :views, presence: true
+  validates :title, :asker_id, :body, :score, :view_count, presence: true
 
   #associations
   belongs_to(:asker, class_name: 'User',
@@ -9,5 +9,7 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   has_many(:answers, class_name: 'Answer',
+           foreign_key: :question_id, primary_key: :id)
+  has_many(:views, class_name: 'View',
            foreign_key: :question_id, primary_key: :id)
 end
