@@ -2,16 +2,12 @@
 
 <%= render "layouts/errors" %>
 
-<form action="<%= users_url %>" method="post">
+<form action="<%= user_url(@user) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
   <%= auth_token_input %>
   <label>
     Location
-    <input type="text" name="user[location]" value="">
-  </label>
-
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
+    <input type="text" name="user[location]" value="<%= @user.location %>">
   </label>
 
   <input type="submit" value="Submit">

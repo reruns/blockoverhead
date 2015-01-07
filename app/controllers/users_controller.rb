@@ -20,12 +20,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    redirect_to user_url(@user) unless @user == current_user
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to root_url #TODO: this goes to the user show page probs
+      redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :edit

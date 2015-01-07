@@ -3,6 +3,11 @@
 <strong>Location:</strong> <%= @user.location %><br>
 <strong>Join Date:</strong> <%= @user.created_at %>
 
+<br>
+<% if (@user == current_user) %>
+  <a href="<%= edit_user_url(@user)%>">Edit this info</a>
+<% end %>
+
 <h3>Answers</h3>
 <ul class='answers'>
   <% @user.answers.each do |answer|  %>
