@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: "sessions#new"
+  root to: 'questions#index'
 
-  resources :users, except: [:destroy, :index]
+  resources :users, except: [:destroy]
   resource :session, only: [:new, :create, :destroy]
   resources :questions, except: :destroy
   post '/answers', to: 'answers#create'

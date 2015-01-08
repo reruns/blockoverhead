@@ -17,6 +17,11 @@
 <% end %>
 <%= tstr %>
 
+<br>
+<% if (@question.asker == current_user) %>
+  <a href="<%= edit_question_url(@question)%>">Edit Question</a>
+<% end %>
+
 <%= render "comments/index", commentable: @question %>
 
 <%= render "comments/form", commentable: @question %>
