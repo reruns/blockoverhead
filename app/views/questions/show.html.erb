@@ -22,19 +22,22 @@
 
 <%= render "comments/form", commentable: @question %>
 
-<h2>Answers</h2>
-<% @question.answers.each do |answer| %>
-  <%= render 'likes/buttons', likeable: answer %>
-  <pre>
-    <%= answer.body %>
-  </pre>
-  <strong>Answer by:</strong> <%= answer.user.username %>
+<% unless @question.answers.empty? %>
+  <h2><%= @question.answers.length %> Answers</h2>
+  <% @question.answers.each do |answer| %>
+    <%= render 'likes/buttons', likeable: answer %>
+    <pre>
+      <%= answer.body %>
+    </pre>
+    <strong>Answer by:</strong> <%= answer.user.username %>
 
-  <%= render "comments/index", commentable: answer %>
-  <%= render "comments/form", commentable: answer %>
+    <%= render "comments/index", commentable: answer %>
+    <%= render "comments/form", commentable: answer %>
+  <% end %>
 <% end %>
 
 
+<h2>Add an Answer!</h2>
 <form id="new_answer" action='<%=answers_url%>' method="post">
   <%= auth_token_input %>
   <input type="hidden" value='<%=@question.id%>' name="answer[question_id]">
