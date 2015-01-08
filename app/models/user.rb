@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  #AN EMBARASSMENT OF ASSOCIATIONS
   has_many(:questions, class_name: 'Question',
            foreign_key: :asker_id, primary_key: :id)
   has_many(:answers, class_name: 'Answer',

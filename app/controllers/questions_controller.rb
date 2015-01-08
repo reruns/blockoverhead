@@ -5,16 +5,14 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
 
-    #TODO: probably move this to the helper or smth?
-    if params[:question][:tags] =~ /^\s*$/
-      flash.now[:errors] = ["Must have at least one tag"]
+    #TODO: make this...not like this
+    unless view_context.require_tag(params[:question][:tags])
       render :new
       return
     end
 
-    @question.asker_id = current_user.id
     @question.score = 0;
     @question.view_count = 0;
     if @question.save!
@@ -42,9 +40,8 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
 
-    if params[:question][:tags] =~ /^\s*$/
-      flash.now[:errors] = ["Must have at least one tag"]
-      render :new
+    unless view_context.require_tag(params[:question][:tags])
+      render :edit
       return
     end
 

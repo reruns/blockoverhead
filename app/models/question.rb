@@ -1,8 +1,6 @@
 class Question < ActiveRecord::Base
-  #validations
   validates :title, :asker_id, :body, :score, :view_count, presence: true
 
-  #associations
   belongs_to(:user, class_name: 'User',
              foreign_key: :asker_id, primary_key: :id)
 
