@@ -41,9 +41,16 @@ class QuestionsController < ApplicationController
     end
   end
 
+  #These two are probably better off having their own views
+  #not a big deal for now
   def tagged
     tag = Tag.find_by(title: params[:tag])
     @questions = Question.joins(:tags).where(tags: {id: tag.id}).all
+    render :index
+  end
+
+  def unanswered
+    @questions = Question.includes(:answers).where(answers: {question_id: nil})
     render :index
   end
 
