@@ -28,6 +28,7 @@
 
 <h2>Answers</h2>
 <% @question.answers.each do |answer| %>
+  <%= render 'likes/buttons', likeable: answer %>
   <pre>
     <%= answer.body %>
   </pre>
