@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
       render :new
       return
     end
-    
+
     @question.asker_id = current_user.id
     @question.score = 0;
     @question.view_count = 1;
@@ -32,6 +32,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    current_user.view_question(@question)
   end
 
   def edit

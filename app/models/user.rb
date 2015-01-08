@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
       view = View.new(question_id: question.id, viewer_id: self.id)
       view.save!
       question.view_count += 1
+      question.save!
     end
   end
 
