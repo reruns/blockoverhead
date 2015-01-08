@@ -1,17 +1,12 @@
 class QuestionsController < ApplicationController
-  before_filter :require_signed_in!, only: [:new, :create, :edit]
+  before_action :require_signed_in!, only: [:new, :create, :edit]
+  before_action :require_tag, only: [:create, :edit]
   def new
     @question = Question.new
   end
 
   def create
     @question = current_user.questions.new(question_params)
-
-    #TODO: make this...not like this
-    unless view_context.require_tag(params[:question][:tags])
-      render :new
-      return
-    end
 
     @question.score = 0;
     @question.view_count = 0;
@@ -40,11 +35,6 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
 
-    unless view_context.require_tag(params[:question][:tags])
-      render :edit
-      return
-    end
-
     if @question.update(question_params)
       parse_tags(@question, params[:question][:tags])
       redirect_to question_url(@question)
@@ -54,8 +44,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  #These two are probably better off having their own views
-  #not a big deal for now
   def tagged
     tag = Tag.find_by(title: params[:tag])
     @questions = Question.joins(:tags).where(tags: {id: tag.id}).all

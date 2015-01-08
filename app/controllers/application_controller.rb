@@ -27,13 +27,21 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless signed_in?
   end
 
+  def require_tag
+    tags = params[:question][:tags]
+    if tags =~ /^\s*$/
+      flash[:errors] = ["Must have at least one tag"]
+      redirect_to :back
+    end
+  end
+
   def parse_tags(taggable, tag_string)
     tags = tag_string.split.uniq
     t = []
     tags.each do |tag|
-      t.push(Tag.find_or_create_by(title: tag))
+      t << Tag.find_or_create_by(title: tag)
     end
     taggable.tags=(t)
   end
-  
+
 end
