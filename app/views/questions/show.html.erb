@@ -11,11 +11,7 @@
 
 <br>
 <strong>Tags:</strong>
-<% tstr = "" %>
-<% @question.tags.each do |tag| %>
-  <% tstr += tag.title + ' ' %>
-<% end %>
-<%= tstr %>
+<%= render 'tags/tags', taggable: @question %>
 
 <br>
 <% if (@question.user == current_user) %>

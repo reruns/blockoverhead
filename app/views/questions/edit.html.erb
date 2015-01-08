@@ -19,7 +19,7 @@
   <label>
     Tags
     <% tstr = "" %>
-    <% @question.tags.each do |tag| %>
+    <% @question.tags.reverse_each do |tag| %>
       <% tstr += tag.title + ' ' %>
     <% end %>
     <input type="text" name="question[tags]" value="<%= tstr %>">
