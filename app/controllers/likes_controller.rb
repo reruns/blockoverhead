@@ -6,10 +6,6 @@ class LikesController < ApplicationController
       liker_id: current_user.id
     )
 
-    #You can't like your own questions and answers. Duh.
-    return if(like.likeable.user == current_user)
-    #Realistically the buttons probably shouldn't appear
-
     #TODO: simplify this branch logic
     if like
       like.destroy
@@ -42,13 +38,16 @@ class LikesController < ApplicationController
         liker_id: current_user.id,
         positive: params[:like][:positive]
       )
-      like.save!
-      if (like.positive)
-        like.likeable.score += 1
-      else
-        like.likeable.score -= 1
+      #You can't like your own questions and answers. Duh.
+      unless (like.likeable.user == current_user)
+        like.save!
+        if (like.positive)
+          like.likeable.score += 1
+        else
+          like.likeable.score -= 1
+        end
+        like.likeable.save!
       end
-      like.likeable.save!
     end
     redirect_to :back
   end
