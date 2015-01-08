@@ -40,6 +40,13 @@ class QuestionsController < ApplicationController
     end
   end
 
+  #oh this is bad
+  def tagged
+    tag = Tag.find_by(title: params[:tag])
+    @questions = Question.joins(:tags).where(tags: {id: tag.id}).all
+    render :index
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :body)
