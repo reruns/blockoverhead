@@ -9,6 +9,14 @@
 
 <strong>Asked by:</strong> <%= @question.asker.username %>
 
+<br>
+<strong>Tags:</strong>
+<% tstr = "" %>
+<% @question.tags.each do |tag| %>
+  <% tstr += tag.title + ' ' %>
+<% end %>
+<%= tstr %>
+
 <%= render "comments/index", commentable: @question %>
 
 <%= render "comments/form", commentable: @question %>

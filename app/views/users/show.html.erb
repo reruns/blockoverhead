@@ -8,6 +8,14 @@
   <a href="<%= edit_user_url(@user)%>">Edit this info</a>
 <% end %>
 
+<br>
+<strong>watched tags:</strong>
+<% tstr = "" %>
+<% @user.tags.each do |tag| %>
+  <% tstr += tag.title + ' ' %>
+<% end %>
+<%= tstr %>
+
 <h3>Answers</h3>
 <ul class='answers'>
   <% @user.answers.each do |answer|  %>

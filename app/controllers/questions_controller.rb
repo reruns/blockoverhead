@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
     @question.view_count = 1;
     if @question.save!
       @question.asker.view_question(@question)
+      parse_tags(@question, params[:question][:tags])
       redirect_to questions_url
     else
       render :new
@@ -22,6 +23,21 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      parse_tags(@question, params[:question][:tags])
+      redirect_to question_url(@question)
+    else
+      flash.now[:errors] = @question.errors.full_messages
+      render :edit
+    end
   end
 
   private

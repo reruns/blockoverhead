@@ -1,0 +1,29 @@
+<h1>Edit Question</h1>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= question_url(@question) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <%= auth_token_input %>
+  <label>
+    Title
+    <input type="text" name="question[title]" value="<%=@question.title%>">
+  </label>
+
+  <label>
+    Body
+    <input type="text" name="question[body]" value="<%=@question.body%>">
+  </label>
+
+  <label>
+    Tags
+    <% tstr = "" %>
+    <% @question.tags.each do |tag| %>
+      <% tstr += tag.title + ' ' %>
+    <% end %>
+    <input type="text" name="question[tags]" value="<%= tstr %>">
+  </label>
+
+  <input type="submit" value="Ask">
+</form>

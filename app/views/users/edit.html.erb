@@ -10,6 +10,15 @@
     <input type="text" name="user[location]" value="<%= @user.location %>">
   </label>
 
+  <label>
+    Tags
+    <% tstr = "" %>
+    <% @user.tags.each do |tag| %>
+      <% tstr += tag.title + ' ' %>
+    <% end %>
+    <input type="text" name="user[tags]" value="<%= tstr %>">
+  </label>
+
   <input type="submit" value="Submit">
 </form>
 
