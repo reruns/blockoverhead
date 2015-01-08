@@ -7,7 +7,7 @@
   <%= @question.body %>
 </pre>
 
-<strong>Asked by:</strong> <%= @question.asker.username %>
+<strong>Asked by:</strong> <%= @question.user.username %>
 
 <br>
 <strong>Tags:</strong>
@@ -18,7 +18,7 @@
 <%= tstr %>
 
 <br>
-<% if (@question.asker == current_user) %>
+<% if (@question.user == current_user) %>
   <a href="<%= edit_question_url(@question)%>">Edit Question</a>
 <% end %>
 
@@ -31,7 +31,7 @@
   <pre>
     <%= answer.body %>
   </pre>
-  <strong>Answer by:</strong> <%= answer.responder.username %>
+  <strong>Answer by:</strong> <%= answer.user.username %>
 
   <%= render "comments/index", commentable: answer %>
   <%= render "comments/form", commentable: answer %>

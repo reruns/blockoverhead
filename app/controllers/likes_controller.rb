@@ -6,6 +6,10 @@ class LikesController < ApplicationController
       liker_id: current_user.id
     )
 
+    #You can't like your own questions and answers. Duh.
+    return if(like.likeable.user == current_user)
+    #Realistically the buttons probably shouldn't appear
+
     #TODO: simplify this branch logic
     if like
       like.destroy

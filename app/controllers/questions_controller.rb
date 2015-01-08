@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @question.score = 0;
     @question.view_count = 1;
     if @question.save!
-      @question.asker.view_question(@question)
+      @question.user.view_question(@question)
       parse_tags(@question, params[:question][:tags])
       redirect_to questions_url
     else

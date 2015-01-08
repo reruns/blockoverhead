@@ -35,4 +35,5 @@ class ApplicationController < ActionController::Base
     end
     taggable.tags=(t)
   end
+  
 end
