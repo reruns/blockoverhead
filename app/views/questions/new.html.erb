@@ -6,12 +6,12 @@
   <%= auth_token_input %>
   <label>
     Title
-    <input type="text" name="question[title]" value="">
+    <input type="text" name="question[title]" value="<%=@question.title %>">
   </label>
 
   <label>
     Body
-    <input type="text" name="question[body]" value="">
+    <input type="text" name="question[body]" value="<%= @question.body %>">
   </label>
 
   <label>

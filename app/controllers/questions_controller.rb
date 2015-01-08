@@ -6,6 +6,14 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+
+    #TODO: probably move this to the helper or smth?
+    if params[:question][:tags] =~ /^\s*$/
+      flash.now[:errors] = ["Must have at least one tag"]
+      render :new
+      return
+    end
+    
     @question.asker_id = current_user.id
     @question.score = 0;
     @question.view_count = 1;
@@ -32,6 +40,13 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
+
+    if params[:question][:tags] =~ /^\s*$/
+      flash.now[:errors] = ["Must have at least one tag"]
+      render :new
+      return
+    end
+
     if @question.update(question_params)
       parse_tags(@question, params[:question][:tags])
       redirect_to question_url(@question)
