@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <a href='<%= user_url(current_user) %>'><%= current_user.username %></a>
+  <br>
+  <a href='<%= questions_url %>'>Questions</a>
+  <a href='<%= tags_url %>'>Tags</a>
+  <a href='<%= users_url %>'>Users</a>
+  <a href='#'>Unanswered</a>
+  <a href='<%= new_question_url %>'>Ask</a>
 
 <%= yield %>
 

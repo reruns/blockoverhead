@@ -1,0 +1,7 @@
+<h1>Users</h1>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <a href="<%= tagged_url(tag) %>"><%= tag.title %></a>
+  <% end %>
+</ul>

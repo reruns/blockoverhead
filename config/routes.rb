@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :questions, except: :destroy
   resources :tags, only: :index
-  get '/questions/tagged/:tag', to: 'questions#tagged'
+  get '/questions/tagged/:tag', to: 'questions#tagged', as: 'tagged'
   post '/answers', to: 'answers#create'
   post '/comments', to: 'comments#create'
   post '/likes', to: 'likes#toggle'
