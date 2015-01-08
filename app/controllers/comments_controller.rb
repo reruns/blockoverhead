@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
   before_filter :require_signed_in!
   def create
-    @comment = Comment.new(comment_params)
-    @comment.author_id = current_user.id
-    @comment.save! #TODO: make this the non-bang version once testing is done.
-    #welp
+    @comment = current_user.comments.new(comment_params)
+    #TODO: make this the non-bang version once we're confident it won't quietly 'splode
+    @comment.save!
     redirect_to :back
   end
 

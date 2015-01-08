@@ -1,12 +1,11 @@
 class AnswersController < ApplicationController
   before_filter :require_signed_in!
-  
+
   def create
-    @answer = Answer.new(answer_params)
+    @answer = current_user.answers.new(answer_params)
     @answer.score = 0;
-    @answer.responder_id = current_user.id
-    @answer.save! #TODO: make this the non-bang version once testing is done.
-    #welp
+    #TODO: same as in comments
+    @answer.save!
     redirect_to question_url(@answer.question)
   end
 

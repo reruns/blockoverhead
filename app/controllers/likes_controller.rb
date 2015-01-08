@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_filter :require_signed_in!
-  
+
   def toggle
     like = Like.find_by(
       likeable_type: params[:like][:likeable_type],
@@ -8,10 +8,10 @@ class LikesController < ApplicationController
       liker_id: current_user.id
     )
 
-    #TODO: simplify this branch logic
+    #TODO: hopefully simplify this
     if like
-      like.destroy
       if like.positive.to_s == params[:like][:positive]
+        like.destroy
         if (like.positive)
           like.likeable.score -= 1
         else
@@ -19,12 +19,7 @@ class LikesController < ApplicationController
         end
         like.likeable.save!
       else
-        like = Like.new(
-          likeable_type: params[:like][:likeable_type],
-          likeable_id: params[:like][:likeable_id],
-          liker_id: current_user.id,
-          positive: params[:like][:positive]
-        )
+        like.positive = params[:like][:positive]
         like.save!
         if (like.positive)
           like.likeable.score += 2
