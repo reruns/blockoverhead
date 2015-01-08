@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_filter :require_signed_in!
+  
   def create
     @answer = Answer.new(answer_params)
     @answer.score = 0;

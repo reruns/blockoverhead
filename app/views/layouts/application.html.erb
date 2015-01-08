@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <a href='<%= user_url(current_user) %>'><%= current_user.username %></a>
+  <% if signed_in? %>
+    <a href='<%= user_url(current_user) %>'><%= current_user.username %></a>
+    <%= button_to "Sign Out", session_url, :method => :delete %>
+  <% else %>
+    <a href="<%= new_session_url %>">Sign In</a>
+    <a href="<%= new_user_url %>">Sign Up</a>
+  <% end %>
   <br>
   <a href='<%= questions_url %>'>Questions</a>
   <a href='<%= tags_url %>'>Tags</a>

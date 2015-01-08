@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_filter :require_signed_in!, only: [:new, :create, :edit]
   def new
     @question = Question.new
   end
@@ -40,7 +41,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  #oh this is bad
   def tagged
     tag = Tag.find_by(title: params[:tag])
     @questions = Question.joins(:tags).where(tags: {id: tag.id}).all

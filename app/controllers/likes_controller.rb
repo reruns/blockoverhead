@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_filter :require_signed_in!
+  
   def toggle
     like = Like.find_by(
       likeable_type: params[:like][:likeable_type],

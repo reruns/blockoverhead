@@ -2,6 +2,6 @@
 
 <ul>
   <% @tags.each do |tag| %>
-    <a href="<%= tagged_url(tag) %>"><%= tag.title %></a>
+    <a href="<%= "/questions/tagged/#{tag.title}" %>"><%= tag.title %></a>
   <% end %>
 </ul>
