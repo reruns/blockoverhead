@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
 
     @question.asker_id = current_user.id
     @question.score = 0;
-    @question.view_count = 1;
+    @question.view_count = 0;
     if @question.save!
       @question.user.view_question(@question)
       parse_tags(@question, params[:question][:tags])
@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    current_user.view_question(@question)
+    current_user.view_question(@question) if signed_in?
   end
 
   def edit
