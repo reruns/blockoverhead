@@ -15,7 +15,6 @@ BlockOverhead.Views.QuestionForm = Backbone.View.extend({
     var attrs = this.$el.serializeJSON().question,
         that = this;
     this.model.set(attrs);
-    this.model.set('asker_id', 1);
     this.model.save({}, {
       success: function() {
         that.collection.add(that.model, { merge: true });
