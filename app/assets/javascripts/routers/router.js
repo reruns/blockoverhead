@@ -11,13 +11,22 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     'users/:id':'showUser'
   },
 
-  usersIndex: function() {//TODO
+  questionsIndex: function() {
+    BlockOverhead.Collections.questions.fetch();
+
+    var view = new BlockOverhead.Views.questionsIndex({
+      collection: BlockOverhead.Collections.questions
+    });
+    this._swapRoot(view);
+  },
+
+  usersIndex: function() {
     BlockOverhead.Collections.users.fetch();
 
     var view = new BlockOverhead.Views.usersIndex({
       collection: BlockOverhead.Collections.users
     });
-    this._swapMain(view);
+    this._swapRoot(view);
   },
 
   swapRoot: function(view) {
@@ -25,5 +34,4 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     this._currentRoot = view;
     this.$rootEl.html(view.render().$el);
   }
-
 });

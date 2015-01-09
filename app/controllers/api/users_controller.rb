@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    render json: @user unless @user == current_user
+    render json: @user
   end
 
   def update
