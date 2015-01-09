@@ -6,4 +6,6 @@ Backbone stuff:
   Button to pop in the comments form instead of just having a shitload of them
   Users page lists user's answers and comments
   Unanswered questions
-  Sort tabs for the questions index view
+  Edit links that only appear if you own the thing
+  Sorting questions
+  Styles!
