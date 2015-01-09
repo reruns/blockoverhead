@@ -3,11 +3,11 @@ BlockOverhead.Collections.Users = Backbone.Collection.extend({
   url: '/api/users',
 
   getOrFetch: function(id) {
-    var user = this.get(id);
-    var users = this;
+    var user = this.get(id),
+        users = this;
 
     if (!user) {
-      user = new BlockOverhead.Models.User({id: id});
+      user = new BlockOverhead.Models.User({ id: id });
       user.fetch({
           success: function() {
             users.add(user);

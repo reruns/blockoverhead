@@ -10,7 +10,7 @@ BlockOverhead.Collections.Questions = Backbone.Collection.extend({
       question = new BlockOverhead.Models.Question({ id: id });
       question.fetch({
         success: function() {
-          users.add(question);
+          questions.add(question);
         }
       })
     } else {

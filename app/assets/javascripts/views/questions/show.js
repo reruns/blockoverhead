@@ -5,7 +5,7 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   },
 
   render: function() {
-    //TODO don't test without remembering to do this, idiot
+    this.$el.html(this.template({ question: this.model }));
+    return this;
   }
-
 })

@@ -7,7 +7,7 @@ BlockOverhead.Views.UsersIndex = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.empty();
     var that = this;
     this.collection.each(function(user) {
       var userView = new BlockOverhead.Views.UsersIndexItem({
