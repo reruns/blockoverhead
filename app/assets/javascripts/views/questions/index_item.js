@@ -1,9 +1,9 @@
 BlockOverhead.Views.QuestionsIndexItem = Backbone.View.extend({
   tagName: 'li',
-  template: JST['questions/indexItem'],
+  template: JST['questions/index_item'],
   render: function() {
     this.$el.html(this.template({
-      user: this.model
+      question: this.model
     }));
     return this;
   }

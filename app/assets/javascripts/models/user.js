@@ -1,3 +1,3 @@
-BlockOverhead.Models.User = Backbone.Model.extent({
+BlockOverhead.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users'
 });

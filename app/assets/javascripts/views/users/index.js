@@ -2,6 +2,10 @@ BlockOverhead.Views.UsersIndex = Backbone.View.extend({
   tagName: 'ul',
   template: JST['users/index'],
 
+  initialize: function() {
+    this.listenTo(this.collection, 'add remove reset', this.render)
+  },
+
   render: function() {
     this.$el.html(this.template());
     var that = this;

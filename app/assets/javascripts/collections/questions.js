@@ -1,6 +1,6 @@
 BlockOverhead.Collections.Questions = Backbone.Collection.extend({
   model: BlockOverhead.Models.Question,
-  url: '/api/question',
+  url: '/api/questions',
 
   getOrFetch: function(id) {
     var question = this.get(id),
@@ -20,4 +20,4 @@ BlockOverhead.Collections.Questions = Backbone.Collection.extend({
   }
 })
 
-BlockOverhead.Collections.users = new BlockOverhead.Collections.Questions();
+BlockOverhead.Collections.questions = new BlockOverhead.Collections.Questions();
