@@ -1,23 +1,9 @@
 module Api
   class UsersController < ApiController
-    def new
-      @user = User.new
-      render json: @user
-    end
 
     def index
       @users = User.all
       render json: @users
-    end
-
-    def create
-      @user = User.new(user_params)
-      if @user.save
-        sign_in(@user)
-        render json: @user
-      else
-        render json: @user.errors.full_messages, status: 422
-      end
     end
 
     def show

@@ -4,12 +4,10 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     this.$navbar = options.$navbar
   },
 
-  //for now just index
   routes: {
     '':'questionsIndex',
     'questions':'questionsIndex',
-    'users':'usersIndex',
-    'users/:id':'showUser'
+    'users':'usersIndex'
   },
 
   questionsIndex: function() {

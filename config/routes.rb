@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/likes', to: 'likes#toggle'
 
   namespace :api, defaults: { format: :json } do
-    resources :users, except: :destroy
+    resources :users, except: [:destroy, :new, :create]
     resources :questions, except: :destroy
   end
 end
