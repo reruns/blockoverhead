@@ -1,4 +1,4 @@
-json.extract! @user, :name, :location, :created_at
+json.extract! @user, :username, :location, :created_at
 
 if @user.tags
   json.tags do

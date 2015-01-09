@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'questions#index'
-
+  root to: 'static_pages#root'
+  
   resources :users, except: [:destroy]
   resource :session, only: [:new, :create, :destroy]
   resources :questions, except: :destroy
