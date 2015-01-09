@@ -4,7 +4,10 @@ window.BlockOverhead = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new BlockOverhead.Routers.Router({
+      //$rootEl: TODO SMTH IUNNO
+    });
+    Backbone.history.start();
   }
 };
 
