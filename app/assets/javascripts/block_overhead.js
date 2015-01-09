@@ -5,7 +5,8 @@ window.BlockOverhead = {
   Routers: {},
   initialize: function() {
     new BlockOverhead.Routers.Router({
-      //$rootEl: TODO SMTH IUNNO
+      $rootEl: $('#main'),
+      $navbar: $('#headnav')
     });
     Backbone.history.start();
   }
