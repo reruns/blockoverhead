@@ -6,6 +6,12 @@ Backbone stuff:
   Button to pop in the comments form instead of just having a shitload of them
   Users page lists user's answers and comments
   Unanswered questions
+  
   Edit links that only appear if you own the thing
-  Sorting questions
+  Add sessions controller to api and use it to get current user
+    Have it return the JSON
+    Client-side, turn that into a model
+    make it like BlockOverhead.currentUser
+
+  Sorting questions  
   Styles!
