@@ -18,7 +18,9 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     'questions':'questionsIndex',
     'questions/:id':'questionShow',
     'users':'usersIndex',
-    'users/:id':'usersShow'
+    'users/:id':'usersShow',
+    'tags':'tagsIndex',
+    'questions/tagged/:tag':'taggedQuestions'
   },
 
   questionsIndex: function() {
@@ -31,8 +33,8 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
   },
 
   questionShow: function(id) {
-    var question = BlockOverhead.Collections.questions.getOrFetch(id);
-    var view = new BlockOverhead.Views.QuestionShow({ model: question});
+    var question = BlockOverhead.Collections.questions.getOrFetch(id),
+        view = new BlockOverhead.Views.QuestionShow({ model: question });
     this._swapRoot(view);
   },
 
@@ -46,9 +48,30 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
   },
 
   usersShow: function(id) {
-    var user = BlockOverhead.Collections.users.getOrFetch(id);
-    var view = new BlockOverhead.Views.UserShow({ model: user });
+    var user = BlockOverhead.Collections.users.getOrFetch(id),
+        view = new BlockOverhead.Views.UserShow({ model: user });
     this._swapRoot(view);
+  },
+
+  tagsIndex: function() {
+    BlockOverhead.Collections.tags.fetch();
+
+    var view = new BlockOverhead.Views.TagsIndex({
+      collection: BlockOverhead.Collections.tags
+    });
+    this._swapRoot(view);
+  },
+
+  taggedQuestions: function(tag) {
+    var that = this;
+    BlockOverhead.Collections.tags.fetch({
+      success: function() {
+        var t = BlockOverhead.Collections.tags.findWhere({ title: tag }),
+            view = new BlockOverhead.Views.QuestionsIndex({ collection: t.questions() });
+        t.fetch();
+        that._swapRoot(view);
+      }
+    });
   },
 
   _swapRoot: function(view) {

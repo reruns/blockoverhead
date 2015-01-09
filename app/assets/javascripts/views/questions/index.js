@@ -6,13 +6,14 @@ BlockOverhead.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   render: function() {
+    debugger;
     this.$el.empty();
     var that = this;
     this.collection.each(function(question) {
-      var userView = new BlockOverhead.Views.QuestionsIndexItem({
+      var questionView = new BlockOverhead.Views.QuestionsIndexItem({
         model: question
       });
-      that.$el.append(userView.render().$el);
+      that.$el.append(questionView.render().$el);
     });
     return this;
   }

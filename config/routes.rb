@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, except: [:destroy, :new, :create]
     resources :questions, except: :destroy
+    resources :tags, only: [:index, :show]
   end
 end
