@@ -1,0 +1,20 @@
+<h1>Ask a Question</h1>
+
+<form>
+  <label>
+    Title
+    <input type="text" name="question[title]" value="<%= question.title %>">
+  </label>
+
+  <label>
+    Body
+    <input type="text" name="question[body]" value="<%= question.body %>">
+  </label>
+
+  <label>
+    Tags
+    <input type="text" name="question[tags]" value="">
+  </label>
+
+  <input type="submit" value="Ask" class="submit">
+</form>

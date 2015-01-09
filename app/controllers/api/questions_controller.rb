@@ -8,12 +8,9 @@ module Api
 
     def create
       @question = current_user.questions.new(question_params)
-
-      @question.score = 0;
-      @question.view_count = 0;
       if @question.save!
         @question.user.view_question(@question)
-        parse_tags(@question, params[:question][:tags])
+        parse_tags(@question, params[:tags])
         render json: @question
       else
         render json: @question.errors.full_messages, status: 422

@@ -3,9 +3,16 @@ BlockOverhead.Models.Question = Backbone.Model.extend({
 
   tags: function() {
     if (!this._tags) {
-      this._tags = newBlockOverhead.Collections.Tags([], { question: this });
+      this._tags = new BlockOverhead.Collections.Tags([], { question: this });
     }
     return this._tags;
+  },
+
+  answers: function() {
+    if (!this._answers) {
+      this._answers = new BlockOverhead.Collections.Answers([], {question: this });
+    }
+    return this._answers;
   },
 
   parse: function(response) {

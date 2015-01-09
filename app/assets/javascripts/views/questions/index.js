@@ -6,7 +6,6 @@ BlockOverhead.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   render: function() {
-    debugger;
     this.$el.empty();
     var that = this;
     this.collection.each(function(question) {

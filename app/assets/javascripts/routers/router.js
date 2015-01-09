@@ -16,11 +16,13 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
   routes: {
     '':'questionsIndex',
     'questions':'questionsIndex',
+    'ask':'questionNew',
     'questions/:id':'questionShow',
     'users':'usersIndex',
     'users/:id':'usersShow',
     'tags':'tagsIndex',
-    'questions/tagged/:tag':'taggedQuestions'
+    'questions/tagged/:tag':'taggedQuestions',
+    'unanswered':'unansweredQuestions'
   },
 
   questionsIndex: function() {
@@ -29,6 +31,15 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     var view = new BlockOverhead.Views.QuestionsIndex({
       collection: BlockOverhead.Collections.questions
     });
+    this._swapRoot(view);
+  },
+
+  questionNew: function() {
+    var question = new BlockOverhead.Models.Question(),
+        view = new BlockOverhead.Views.QuestionForm({
+          model: question,
+          collection: BlockOverhead.Collections.questions
+        });
     this._swapRoot(view);
   },
 
@@ -72,6 +83,14 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
         that._swapRoot(view);
       }
     });
+  },
+
+  unansweredQuestions: function() {
+    BlockOverhead.Collections.questions.fetch( {
+      success: function() {
+        debugger;
+      }
+    })
   },
 
   _swapRoot: function(view) {
