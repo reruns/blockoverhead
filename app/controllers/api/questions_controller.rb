@@ -25,7 +25,7 @@ module Api
     def show
       @question = Question.find(params[:id])
       current_user.view_question(@question) if signed_in?
-      render json: @question
+      render :show
     end
 
     def edit
