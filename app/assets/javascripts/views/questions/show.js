@@ -9,14 +9,15 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
 
     var authorView = new BlockOverhead.Views.PostedBy({
       model: this.model.author()
-    });
-    this.$el.find('.posted-by').html(authorView.render().$el);
-
-    var commentsView = new BlockOverhead.Views.CommentList({
+    }), commentsView = new BlockOverhead.Views.CommentList({
       collection: this.model.comments()
+    }), answersView = new BlockOverhead.Views.AnswerList({
+      collection: this.model.answers()
     });
 
+    this.$el.find('.posted-by').html(authorView.render().$el);
     this.$el.find('.comments').html(commentsView.render().$el);
+    this.$el.find('#answers').html(answersView.render().$el);
 
     debugger;
     return this;
