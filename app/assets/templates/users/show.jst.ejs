@@ -1,1 +1,16 @@
 <h1><%= user.get('username') %></h1>
+
+<strong>Location: </strong><%= user.get('location') %><br>
+<strong>Join Date: </strong><%= user.get('created_at') %><br>
+<button id='Edit'>Edit</button>
+<div class='tags'></div>
+
+<label>
+  <h2>Answers</h2>
+</label>
+<section id='answers'></section>
+
+<label>
+  <h2>Questions</h2>
+</label>
+<section id='questions'></section>

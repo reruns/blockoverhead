@@ -3,6 +3,7 @@ BlockOverhead.Collections.Answers = Backbone.Collection.extend({
   url: '/api/answers',
 
   initialize: function(models, options) {
-    this.question = options.question
+    this.question = options.question;
+    this.user = options.user;
   }
 })

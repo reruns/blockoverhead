@@ -7,3 +7,22 @@ if @user.tags
     end
   end
 end
+
+if @user.questions
+  json.questions do
+    json.array! @user.questions do |question|
+      json.extract! question, :id, :title, :score
+    end
+  end
+end
+
+if @user.answers
+  json.answers do
+    json.array! @user.answers do |answer|
+      json.extract! answer, :id, :score
+      json.question do
+        json.extract! answer.question, :id, :title
+      end
+    end
+  end
+end
