@@ -19,14 +19,16 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       collection: this.model.answers()
     }), likesView = new BlockOverhead.Views.LikesForm({
       model: this.model
+    }), tagsView = new BlockOverhead.Views.SubTags({
+      collection: this.model.tags()
     });
 
     this.$el.find('.posted-by').html(authorView.render().$el);
     this.$el.find('.comments').html(commentsView.render().$el);
     this.$el.find('.likes').html(likesView.render().$el);
     this.$el.find('#answers').html(answersView.render().$el);
+    this.$el.find('#tags').html(tagsView.render().$el);
 
-    debugger;
     return this;
   },
 

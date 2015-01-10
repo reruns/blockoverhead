@@ -29,6 +29,13 @@ BlockOverhead.Models.Question = Backbone.Model.extend({
     return this._author
   },
 
+  tags: function() {
+    if (!this._tags) {
+      this._tags = new BlockOverhead.Collections.Tags([], { question: this });
+    }
+    return this._tags
+  },
+
   parse: function(response) {
     if (response.comments) {
       this.comments().set(response.comments, { parse: true });
@@ -41,7 +48,13 @@ BlockOverhead.Models.Question = Backbone.Model.extend({
     }
 
     if (response.user) {
-      this.author().set(response.user, {parse: true });
+      this.author().set(response.user, { parse: true });
+      delete response.author;
+    }
+
+    if (response.tags) {
+      this.tags().set(response.tags, { parse: true });
+      delete response.tags;
     }
 
     return response;
