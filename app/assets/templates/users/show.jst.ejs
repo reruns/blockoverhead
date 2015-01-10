@@ -2,8 +2,11 @@
 
 <strong>Location: </strong><%= user.get('location') %><br>
 <strong>Join Date: </strong><%= user.get('created_at') %><br>
-<button id='Edit'>Edit</button>
-<div class='tags'></div>
+<button id='Edit'>Edit</button><br>
+<label>
+  <strong>Watched Tags:</strong>
+  <div id='tags'></div>
+</label>
 
 <label>
   <h2>Answers</h2>
