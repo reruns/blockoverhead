@@ -1,3 +1,18 @@
 <h1><%= question.get('title') %></h1>
-
+<strong><%= question.get('view_count') %> views</strong>
+<br><br>
+<div class='likes'></div>
 <pre><%= question.get('body') %></pre>
+<div class='posted-by'></div>
+<div class='tags'></div>
+<button class='edit'>
+
+<section class='comments'></section>
+<section id='answers'></section>
+
+<form id="new_answer">
+  <h2>Add an Answer!</h2>
+  <input type="hidden" value='<%= question.id %>' name="answer[question_id]">
+  <textarea name="answer[body]"></textarea>
+  <input type="submit" value="Answer">
+</form>

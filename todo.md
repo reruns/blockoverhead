@@ -6,7 +6,8 @@ Backbone stuff:
   Button to pop in the comments form instead of just having a shitload of them
   Users page lists user's answers and comments
   Unanswered questions
-  
+  make comments upvotable
+
   Edit links that only appear if you own the thing
   Add sessions controller to api and use it to get current user
     Have it return the JSON
