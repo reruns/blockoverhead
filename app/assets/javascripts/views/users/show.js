@@ -6,7 +6,7 @@ BlockOverhead.Views.UserShow = Backbone.View.extend({
   render: function() {
     var questionsView = new BlockOverhead.Views.QuestionsIndex({
       collection: this.model.questions()
-    }), answersView = new BlockOverhead.Views.AnswerList({
+    }), answersView = new BlockOverhead.Views.QuestionsIndex({
       collection: this.model.answers()
     });
 

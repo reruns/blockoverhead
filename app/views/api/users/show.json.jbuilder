@@ -20,9 +20,7 @@ if @user.answers
   json.answers do
     json.array! @user.answers do |answer|
       json.extract! answer, :id, :score
-      json.question do
-        json.extract! answer.question, :id, :title
-      end
+      json.extract! answer.question, :title
     end
   end
 end
