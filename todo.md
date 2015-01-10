@@ -2,6 +2,8 @@ this is a holding pen for near-future stuff so I don't forget
 
 Backbone stuff:
   Question and User show pages filled out with info
+  Update index item templates to have a little more information
+
   Forms for answers and comments on the questions show page
   Button to pop in the comments form instead of just having a shitload of them
   Users page lists user's answers and comments

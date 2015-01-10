@@ -1,13 +1,23 @@
 <h1><%= question.get('title') %></h1>
-<strong><%= question.get('view_count') %> views</strong>
+<strong>
+  <%= question.get('view_count') %> views
+</strong>
+
 <br><br>
+
 <div class='likes'></div>
-<pre><%= question.get('body') %></pre>
+
+<pre>
+  <%= question.get('body') %>
+</pre>
+
 <div class='posted-by'></div>
 <div class='tags'></div>
-<button class='edit'>
+
+<button class='edit'>Edit</button>
 
 <section class='comments'></section>
+
 <section id='answers'></section>
 
 <form id="new_answer">

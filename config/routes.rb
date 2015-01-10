@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :users, except: [:destroy, :new, :create]
     resources :questions, except: :destroy
     resources :tags, only: [:index, :show]
+    resources :comments, only: [:show, :create]
   end
 end

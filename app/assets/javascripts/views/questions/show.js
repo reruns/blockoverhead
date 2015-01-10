@@ -7,9 +7,12 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({ question: this.model }));
 
-    var comments-view = new BlockOverhead.Views.CommentList({ post: this.model })
+    var commentsView = new BlockOverhead.Views.CommentList({
+      collection: this.model.comments()
+    });
 
-    this.$el.find('comments').html()
+    this.$el.find('.comments').html(commentsView.render().$el);
+    debugger;
     return this;
   }
 })
