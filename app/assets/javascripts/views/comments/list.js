@@ -4,7 +4,7 @@ BlockOverhead.Views.CommentList = Backbone.View.extend({
     this.listenTo(this.collection, 'add remove reset', this.render)
   },
   events: {
-    'click add-comment':'comment'
+    'click .add-comment':'comment'
   },
 
   render: function() {
