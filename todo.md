@@ -6,9 +6,6 @@ Backbone stuff:
   Forms for answers and comments on the questions show page actually work
   Button to pop in the comments form instead of just having a shitload of them
 
-  sort comments by date
-
-  Unanswered questions
   make comments upvotable
 
   Edit links that only appear if you own the thing
