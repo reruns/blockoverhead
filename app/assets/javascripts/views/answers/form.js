@@ -5,16 +5,18 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
     this.$el.html(this.template());
     return this;
   },
-  
+
   events: {
     'click button':'submit'
   },
-  
-  submit: function() {
+
+  submit: function(event) {
+    event.preventDefault();
     var that = this;
     var attrs = this.$el.serializeJSON();
     var ans = new BlockOverhead.Models.Answer();
-    ans.save(attrs, {
+    ans.set(attrs.answer);
+    ans.save({question_id: this.model.id}, {
       success: function() {
         that.collection.add(ans, { merge: true });
         that.remove();

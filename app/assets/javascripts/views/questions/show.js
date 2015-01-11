@@ -2,6 +2,7 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   template: JST['questions/show'],
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.answers(), 'add remove reset', this.render);
   },
 
   events: {
@@ -22,7 +23,8 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     }), tagsView = new BlockOverhead.Views.SubTags({
       collection: this.model.tags()
     }), answerForm = new BlockOverhead.Views.AnswerForm({
-      collection: this.model.answers()
+      collection: this.model.answers(),
+      model: this.model
     });
 
     this.$el.find('.posted-by').html(authorView.render().$el);

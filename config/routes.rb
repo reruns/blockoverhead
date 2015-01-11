@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :questions, except: :destroy
     resources :tags, only: [:index, :show]
     resources :comments, only: [:show, :create]
+    post '/answers', to: 'answers#create'
     get '/unanswered', to: 'questions#unanswered'
     post '/likes', to: 'likes#toggle'
   end
