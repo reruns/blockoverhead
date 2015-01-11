@@ -18,7 +18,7 @@ BlockOverhead.Views.CommentForm = Backbone.View.extend({
     comment.save(formData, {
       success: function() {
         that.collection.add(comment, { merge: true });
-        this.remove();
+        that.remove();
       }
     });
   }

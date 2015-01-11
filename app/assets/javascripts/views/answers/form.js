@@ -17,7 +17,7 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
     ans.save(attrs, {
       success: function() {
         that.collection.add(ans, { merge: true });
-        this.remove();
+        that.remove();
       }
     })
   }
