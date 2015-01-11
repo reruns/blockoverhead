@@ -4,7 +4,6 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({ answer: this.model }));
-    debugger;
     var authorView = new BlockOverhead.Views.PostedBy({
       model: this.model.author()
     }), commentsView = new BlockOverhead.Views.CommentList({

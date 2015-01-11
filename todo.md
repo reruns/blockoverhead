@@ -1,7 +1,7 @@
 this is a holding pen for near-future stuff so I don't forget
 
 Backbone stuff:
-  Update index item templates to have a little more information
+  Make the upvote button not link anywhere?
 
   Forms for answers and comments on the questions show page actually work
   Button to pop in the comments form instead of just having a shitload of them
