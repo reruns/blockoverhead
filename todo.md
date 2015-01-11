@@ -1,8 +1,8 @@
 this is a holding pen for near-future stuff so I don't forget
 
 Backbone stuff:
-  Make the upvote button not link anywhere?
-
+  upvote buttons for answers
+  
   Forms for answers and comments on the questions show page actually work
   Button to pop in the comments form instead of just having a shitload of them
 
