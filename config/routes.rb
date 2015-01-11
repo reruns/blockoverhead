@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resources :tags, only: [:index, :show]
     resources :comments, only: [:show, :create]
     get '/unanswered', to: 'questions#unanswered'
+    post '/likes', to: 'likes#toggle'
   end
 end

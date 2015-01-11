@@ -21,6 +21,8 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       model: this.model
     }), tagsView = new BlockOverhead.Views.SubTags({
       collection: this.model.tags()
+    }), answerForm = new BlockOverhead.Views.AnswerForm({
+      collection: this.model.answers()
     });
 
     this.$el.find('.posted-by').html(authorView.render().$el);
@@ -28,11 +30,9 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     this.$el.find('.likes').html(likesView.render().$el);
     this.$el.find('#answers').html(answersView.render().$el);
     this.$el.find('#tags').html(tagsView.render().$el);
+    this.$el.find('#new-answer').html(answerForm.render().$el);
 
     return this;
   },
 
-  answer: function(event) {
-    event.preventDefault();
-  }
 })
