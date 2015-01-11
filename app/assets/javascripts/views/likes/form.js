@@ -1,8 +1,8 @@
 BlockOverhead.Views.LikesForm = Backbone.View.extend({
   template: JST['likes/form'],
   events: {
-    'click .upvote':'upvote',
-    'click .downvote':'downvote'
+    'click #upvote':'upvote',
+    'click #downvote':'downvote'
   },
 
   render: function() {
@@ -11,10 +11,10 @@ BlockOverhead.Views.LikesForm = Backbone.View.extend({
   },
 
   upvote: function(event) {
-    event.preventDefault();
+    console.log('up');
   },
 
   downvote: function(event) {
-    event.preventDefault();
+    console.log('down');
   }
 });

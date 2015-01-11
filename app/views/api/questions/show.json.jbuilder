@@ -21,7 +21,7 @@ end
 
 json.answers do
   json.array! @question.answers do |answer|
-    json.extract! answer, :id, :body
+    json.extract! answer, :id, :body, :score
 
     json.user do
       json.extract! answer.user, :id, :username

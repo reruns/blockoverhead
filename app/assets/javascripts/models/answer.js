@@ -17,7 +17,7 @@ BlockOverhead.Models.Answer = Backbone.Model.extend({
 
   parse: function(response) {
     if (response.user) {
-      this.author().set(response.author, { parse: true });
+      this.author().set(response.user, { parse: true });
       delete response.author
     }
 
