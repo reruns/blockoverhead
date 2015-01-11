@@ -5,13 +5,17 @@ BlockOverhead.Views.LikesForm = Backbone.View.extend({
     'click #downvote':'downvote'
   },
 
+  initialize: function() {
+    this.listenTo(this.model, 'sync', this.render);
+  },
+
   render: function() {
     this.$el.html(this.template({ post: this.model }));
     return this;
   },
 
   upvote: function(event) {
-    console.log('up');
+    var that = this;
     var type = this.getType();
     $.ajax({
       url: '/api/likes',
@@ -20,12 +24,14 @@ BlockOverhead.Views.LikesForm = Backbone.View.extend({
         positive: true,
         likeable_type: type,
         likeable_id: this.model.id
+      }, success: function() {
+        that.model.fetch();
       }
     })
   },
 
   downvote: function(event) {
-    console.log('down');
+    var that = this;
     var type = this.getType();
     $.ajax({
       url: '/api/likes',
@@ -34,10 +40,12 @@ BlockOverhead.Views.LikesForm = Backbone.View.extend({
         positive: false,
         likeable_type: type,
         likeable_id: this.model.id
+      }, success: function() {
+        that.model.fetch();
       }
     })
   },
-  
+
   getType: function() {
     var type;
     if (this.model instanceof BlockOverhead.Models.Question) {

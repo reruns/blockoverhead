@@ -10,6 +10,11 @@ module Api
       render json: @answer
     end
 
+    def show
+      @answer = Answer.find(params[:id])
+      render json: @answer
+    end
+
     private
     def answer_params
       params.require(:answer).permit(:body, :score, :question_id)
