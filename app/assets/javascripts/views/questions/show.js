@@ -6,10 +6,11 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   },
 
   events: {
-    'click .new-answer':'answer'
+    'click .edit':'edit'
   },
 
   render: function() {
+    debugger;
     this.$el.html(this.template({ question: this.model }));
 
     var authorView = new BlockOverhead.Views.PostedBy({
@@ -36,5 +37,18 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     this.$el.find('#new-answer').html(answerForm.render().$el);
 
     return this;
+  },
+
+  edit: function(event) {
+    event.preventDefault();
+    console.log('ok');
+    this.$el.find('#question-title').empty();
+    this.$el.find('#question-data').empty();
+    var view = new BlockOverhead.Views.QuestionForm({
+      model: this.model,
+      collection: BlockOverhead.Collections.questions
+    });
+    this.$el.prepend(view.render().$el);
   }
+
 })

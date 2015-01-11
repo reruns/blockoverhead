@@ -1,5 +1,6 @@
 BlockOverhead.Views.SubTags = Backbone.View.extend({
   tagName: 'ul',
+
   render: function() {
     this.$el.empty();
     var that = this;

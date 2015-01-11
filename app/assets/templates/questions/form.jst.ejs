@@ -1,19 +1,21 @@
-<h1>Ask a Question</h1>
-
 <form>
   <label>
     Title
-    <input type="text" name="question[title]" value="<%= question.title %>">
+    <input type="text" name="question[title]" value="<%= question.get('title') %>">
   </label>
 
   <label>
     Body
-    <input type="text" name="question[body]" value="<%= question.body %>">
+    <input type="text" name="question[body]" value="<%= question.get('body') %>">
   </label>
 
+  <% var tagString = ''; %>
+  <% question.tags().each( function(tag) { %>
+       <% tagString += tag.get('title') + ' '; %>
+  <%  }); %>
   <label>
     Tags
-    <input type="text" name="question[tags]" value="">
+    <input type="text" name="question[tags]" value='<%= tagString %>'>
   </label>
 
   <input type="submit" value="Ask" class="submit">

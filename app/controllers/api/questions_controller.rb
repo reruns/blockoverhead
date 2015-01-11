@@ -37,8 +37,8 @@ module Api
       @question = Question.find(params[:id])
 
       if @question.update(question_params)
-        parse_tags(@question, params[:question][:tags])
-        render json: @question
+        parse_tags(@question, params[:tags])
+        render :show
       else
         render json: @question.errors.full_messages, status: 422
       end
