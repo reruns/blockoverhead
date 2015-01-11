@@ -27,6 +27,8 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       model: this.model
     });
 
+    debugger;
+
     this.$el.find('.posted-by').html(authorView.render().$el);
     this.$el.find('.comments').html(commentsView.render().$el);
     this.$el.find('.likes').html(likesView.render().$el);
