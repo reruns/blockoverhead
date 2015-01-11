@@ -33,6 +33,5 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     this.$el.find('#new-answer').html(answerForm.render().$el);
 
     return this;
-  },
-
+  }
 })
