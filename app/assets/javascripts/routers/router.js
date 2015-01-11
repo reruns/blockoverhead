@@ -86,11 +86,16 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
   },
 
   unansweredQuestions: function() {
-    BlockOverhead.Collections.questions.fetch( {
-      success: function() {
-        debugger;
+    var that = this;
+    $.ajax({
+      url: '/api/unanswered',
+      type: 'GET',
+      success: function(questionData) {
+        var uns = new BlockOverhead.Collections.Questions(questionData),
+            view = new BlockOverhead.Views.QuestionsIndex({ collection: uns });
+        that._swapRoot(view);
       }
-    })
+    });
   },
 
   _swapRoot: function(view) {
