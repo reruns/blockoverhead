@@ -3,6 +3,11 @@ BlockOverhead.Views.UserShow = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render)
   },
+
+  events: {
+    'click button':'edit'
+  },
+
   render: function() {
     var questionsView = new BlockOverhead.Views.QuestionsIndex({
       collection: this.model.questions()
@@ -10,11 +15,14 @@ BlockOverhead.Views.UserShow = Backbone.View.extend({
       collection: this.model.answers()
     });
 
-    debugger;
-
     this.$el.html(this.template({ user: this.model }));
     this.$el.find('#questions').html(questionsView.render().$el);
     this.$el.find('#answers').html(answersView.render().$el);
     return this;
+  },
+
+  edit: function(event) {
+    event.preventDefault();
+
   }
 })
