@@ -43,7 +43,6 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
 
   edit: function(event) {
     event.preventDefault();
-    console.log('ok');
     this.$el.find('#question-title').empty();
     this.$el.find('#question-data').empty();
     var view = new BlockOverhead.Views.QuestionForm({
