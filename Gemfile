@@ -32,7 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'backbone-on-rails'
 gem 'underscore'
-gem 'pagedown-bootstrap-rails'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :development do
   gem 'pry-rails'

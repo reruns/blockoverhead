@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require Markdown.Converter
+//= require Markdown.Editor
+//= require Markdown.Sanitizer
 //= require jquery.serializejson.min
 //= require block_overhead
 //= require_tree ../templates

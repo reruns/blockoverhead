@@ -41,6 +41,10 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
           collection: BlockOverhead.Collections.questions
         });
     this._swapRoot(view);
+    var converter1 = Markdown.getSanitizingConverter();
+    var editor1 = new Markdown.Editor(converter1);
+
+    editor1.run();
   },
 
   questionShow: function(id) {
