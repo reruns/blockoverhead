@@ -1,4 +1,4 @@
-BlockOverhead.Views.UserInfoForm = new Backbone.View.extend({
+BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
   tagName: 'form',
   template: JST['users/info_form'],
 
@@ -13,7 +13,14 @@ BlockOverhead.Views.UserInfoForm = new Backbone.View.extend({
 
   submit: function(event) {
     event.preventDefault();
-    console.log('you got it dude');
+    var attrs = this.$el.serializeJSON(),
+        that = this;
+    this.model.set(attrs);
+    this.model.save({}, {
+      success: function() {
+        that.remove();
+      }
+    })
   }
 
 })

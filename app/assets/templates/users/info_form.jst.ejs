@@ -1,0 +1,15 @@
+<label>
+  Location:
+  <input type="text" name="user[location]" value="<%=user.get('location') %>">
+</label>
+
+<% var tagString = ''; %>
+<% user.tags().each( function(tag) { %>
+  <% tagString += tag.get('title') + ' '; %>
+<%  }); %>
+<label>
+  Tags:
+  <input type="text" name="user[tags]" value="<%= tagString %>">
+</label>
+
+<button>Submit</button>

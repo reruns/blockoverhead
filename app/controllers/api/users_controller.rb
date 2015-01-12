@@ -20,7 +20,7 @@ module Api
       @user = User.find(params[:id])
       if @user.update(user_params)
         parse_tags(@user, params[:user][:tags])
-        render json: @user
+        render :show
       else
         flash.now[:errors] = @user.errors.full_messages
         render json: @user.errors.full_messages, status: 422

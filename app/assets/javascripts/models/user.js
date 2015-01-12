@@ -15,6 +15,13 @@ BlockOverhead.Models.User = Backbone.Model.extend({
     return this._answers;
   },
 
+  tags: function() {
+    if (!this._tags) {
+      this._tags = new BlockOverhead.Collections.Tags([], { user: this });
+    }
+    return this._tags;
+  },
+
   parse: function(response) {
     if (response.answers) {
       this.answers().set(response.answers, { parse: true });
@@ -24,6 +31,11 @@ BlockOverhead.Models.User = Backbone.Model.extend({
     if (response.questions) {
       this.questions().set(response.questions, { parse: true });
       delete response.questions;
+    }
+
+    if (response.tags) {
+      this.tags().set(response.tags, { parse: true });
+      delete response.tags;
     }
 
     return response;

@@ -3,7 +3,8 @@ BlockOverhead.Collections.Tags = Backbone.Collection.extend({
   url: '/api/tags',
 
   initialize: function(models, options) {
-    this.question = options.question
+    this.question = options.question;
+    this.user = options.user;
   }
 })
 
