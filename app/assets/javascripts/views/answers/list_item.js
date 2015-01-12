@@ -49,7 +49,12 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
     var that = this;
     $.ajax({
       type: 'POST',
-      url: '/api/answers/'+this.model.id+'/accept'
+      url: '/api/answers/'+this.model.id+'/accept',
+      success: function() {
+        that.collection.each(function(ans){
+          ans.fetch();
+        });
+      }
     });
   }
 });
