@@ -7,7 +7,9 @@ Backbone stuff:
 
   make comments upvotable
 
+  editing user info
   Edit links that only appear if you own the thing
+  
   Add sessions controller to api and use it to get current user
     Have it return the JSON
     Client-side, turn that into a model

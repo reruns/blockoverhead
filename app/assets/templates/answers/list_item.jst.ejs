@@ -2,5 +2,7 @@
 <pre><%= answer.get('body') %></pre>
 
 <div class='posted-by'></div>
-<button class='edit-answer'>edit</button>
+<% if (BlockOverhead.currentUser.id === answer.author().id) { %>
+  <button class='edit-answer'>edit</button>
+<% } %>
 <section class='comments'></section>
