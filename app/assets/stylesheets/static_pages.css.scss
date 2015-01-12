@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul, li, pre, h1, h2, a, p {
+ul, li, pre, h1, h2, a, p, body {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -21,8 +21,15 @@ label {
   display: block;
 }
 
+p.vote {
+  margin: auto;
+  text-align: center;
+}
+
 .voting {
   float: left;
+  width: 30px;
+  margin-left: 10px;
 }
 
 #views {
@@ -78,9 +85,9 @@ nav#link-bar > a{
 }
 
 .comments {
-  background: red;
+  background: #eee;
   width: 600px;
-  margin: auto;
+  margin-left: 100px;
 }
 
 .comment {
@@ -88,6 +95,7 @@ nav#link-bar > a{
 }
 
 #main {
+  border: 1px solid gray;
   width: 900px;
   background: #fff;
   margin: auto;

@@ -1,1 +1,1 @@
-<pre class='comment'><%= comment.get('body') %> -<%= comment.author().get('username') %></pre>
+<pre class='comment'><%= comment.get('body') %> -<a href=<%= '/users/'+comment.author().id %>><%= comment.author().get('username') %></pre>
