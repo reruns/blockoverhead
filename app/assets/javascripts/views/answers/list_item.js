@@ -3,7 +3,7 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
   template: JST['answers/list_item'],
 
   events: {
-    'click .edit':'edit'
+    'click .edit-answer':'edit'
   },
 
   render: function() {
@@ -24,10 +24,12 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
 
   edit: function(event) {
     event.preventDefault();
+    debugger;
     var view = new BlockOverhead.Views.AnswerForm({
       model: this.model,
       collection: this.collection
     })
+    this.$el.html(view.render().$el);
   }
 
   // edit: function(event) {

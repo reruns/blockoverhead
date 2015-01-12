@@ -2,7 +2,7 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
   tagName: 'form',
   template: JST['answers/form'],
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({ answer: this.model }));
     return this;
   },
 
