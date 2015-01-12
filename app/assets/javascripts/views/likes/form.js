@@ -11,6 +11,7 @@ BlockOverhead.Views.LikesForm = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({ post: this.model }));
+    this.$el.addClass('group voting');
     return this;
   },
 

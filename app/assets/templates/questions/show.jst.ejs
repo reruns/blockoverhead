@@ -1,11 +1,10 @@
-<h1 id='question-title'><%= question.get('title') %></h1>
-<strong>
-  <%= question.get('view_count') %> views
-</strong>
-
-<br><br>
-
 <div class='likes'></div>
+<div id='question-title'>
+  <h1><%= question.get('title') %></h1>
+  <strong id='views'>
+    <%= question.get('view_count') %> views
+  </strong>
+</div>
 
 <div id='question-data'>
   <pre id='question-body'>
