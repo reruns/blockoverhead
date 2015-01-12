@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'backbone-on-rails'
+gem 'underscore'
+gem 'pagedown-bootstrap-rails'
 
 group :development do
   gem 'pry-rails'

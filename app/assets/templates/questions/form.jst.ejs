@@ -2,12 +2,14 @@
   <label>
     Title
     <input type="text" name="question[title]" value="<%= question.get('title') %>">
-  </label>
+  </label><br>
 
-  <label>
-    Body
-    <input type="text" name="question[body]" value="<%= question.get('body') %>">
-  </label>
+  <div class='wmd-panel'>
+    <div id='wmd-button-bar'></div>
+    <textarea class='wmd-input' name='question[body]' id='wmd-input'>
+      <%= question.get('body') %>
+    </textarea>
+  </div>
 
   <% var tagString = ''; %>
   <% question.tags().each( function(tag) { %>
