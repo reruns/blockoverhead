@@ -10,9 +10,18 @@ module Api
       render json: @answer
     end
 
+    def update
+      @answer = Answer.find(params[:id])
+      if @answer.update(answer_params) && current_user == @answer.user
+        render :show
+      else
+        render json: @answer.errors.full_messages, status: 422
+      end
+    end
+
     def show
       @answer = Answer.find(params[:id])
-      render json: @answer
+      render :show
     end
 
     private

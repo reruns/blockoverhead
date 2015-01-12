@@ -10,7 +10,6 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   },
 
   render: function() {
-    debugger;
     this.$el.html(this.template({ question: this.model }));
 
     var authorView = new BlockOverhead.Views.PostedBy({
@@ -25,7 +24,7 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       collection: this.model.tags()
     }), answerForm = new BlockOverhead.Views.AnswerForm({
       collection: this.model.answers(),
-      model: this.model
+      model: new BlockOverhead.Models.Answer()
     });
 
 

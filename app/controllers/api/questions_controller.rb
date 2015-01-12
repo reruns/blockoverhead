@@ -28,15 +28,11 @@ module Api
       render :show
     end
 
-    def edit
-      @question = Question.find(params[:id])
-      render json: @question
-    end
-
     def update
+
       @question = Question.find(params[:id])
 
-      if @question.update(question_params)
+      if @question.update(question_params) && current_user == @question.user
         parse_tags(@question, params[:tags])
         render :show
       else

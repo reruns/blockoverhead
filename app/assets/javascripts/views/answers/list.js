@@ -10,7 +10,8 @@ BlockOverhead.Views.AnswerList = Backbone.View.extend({
     var that = this;
     this.collection.each( function(answer) {
       var answerView = new BlockOverhead.Views.AnswerListItem({
-        model: answer
+        model: answer,
+        collection: that.collection
       });
       that.$el.append(answerView.render().$el);
     });
