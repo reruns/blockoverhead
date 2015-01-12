@@ -17,7 +17,8 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     }), commentsView = new BlockOverhead.Views.CommentList({
       collection: this.model.comments()
     }), answersView = new BlockOverhead.Views.AnswerList({
-      collection: this.model.answers()
+      collection: this.model.answers(),
+      model: this.model.author()
     }), likesView = new BlockOverhead.Views.LikesForm({
       model: this.model
     }), tagsView = new BlockOverhead.Views.SubTags({

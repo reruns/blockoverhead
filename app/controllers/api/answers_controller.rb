@@ -24,6 +24,18 @@ module Api
       render :show
     end
 
+    def accept
+      @answer = Answer.find(params[:id])
+      @answer.question.answers.each do |answer|
+        next if answer == @answer
+        answer.accepted = false
+        answer.save!
+      end
+      @answer.accepted = true
+      @answer.save!
+      render :show
+    end
+
     private
     def answer_params
       params.require(:answer).permit(:body, :score, :question_id)

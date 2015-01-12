@@ -3,11 +3,24 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
   template: JST['answers/list_item'],
 
   events: {
-    'click .edit-answer':'edit'
+    'click .edit-answer':'edit',
+    'click .accept-answer':'accept'
+  },
+
+  initialize: function(options) {
+    this.model = options.model;
+    this.collection = options.collection;
+    this.owner = options.owner;
+    this.listenTo(this.model, 'sync change', this.render);
   },
 
   render: function() {
-    this.$el.html(this.template({ answer: this.model }));
+    this.$el.html(this.template({
+        answer: this.model,
+        owner: this.owner
+      })
+    );
+
     var authorView = new BlockOverhead.Views.PostedBy({
       model: this.model.author()
     }), commentsView = new BlockOverhead.Views.CommentList({
@@ -24,22 +37,19 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
 
   edit: function(event) {
     event.preventDefault();
-    debugger;
     var view = new BlockOverhead.Views.AnswerForm({
       model: this.model,
       collection: this.collection
     })
     this.$el.html(view.render().$el);
-  }
+  },
 
-  // edit: function(event) {
-  //   event.preventDefault();
-  //   this.$el.find('#question-title').empty();
-  //   this.$el.find('#question-data').empty();
-  //   var view = new BlockOverhead.Views.QuestionForm({
-  //     model: this.model,
-  //     collection: BlockOverhead.Collections.questions
-  //   });
-  //   this.$el.prepend(view.render().$el);
-  // }
+  accept: function(event) {
+    event.preventDefault();
+    var that = this;
+    $.ajax({
+      type: 'POST',
+      url: '/api/answers/'+this.model.id+'/accept'
+    });
+  }
 });

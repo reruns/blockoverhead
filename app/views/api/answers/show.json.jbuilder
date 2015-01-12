@@ -1,4 +1,4 @@
-json.extract! @answer, :id, :body, :score
+json.extract! @answer, :id, :body, :score, :accepted
 
 json.user do
   json.extract! @answer.user, :id, :username
@@ -10,5 +10,12 @@ json.comments do
     json.author do
       json.extract! comment.author, :id, :username
     end
+  end
+end
+
+json.question do
+  json.extract! @answer.question, :id, :title, :body, :created_at
+  json.author do
+    json.extract! @answer.question.user, :id
   end
 end

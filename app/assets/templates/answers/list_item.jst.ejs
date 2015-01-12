@@ -1,4 +1,9 @@
 <div class='likes'></div>
+<% if (answer.get('accepted')) { %>
+  <strong>Accepted!</strong>
+<% } else if (owner && BlockOverhead.currentUser.id === owner.id){%>
+  <button class='accept-answer'>Accept</button>
+<% } %>
 <pre><%= answer.get('body') %></pre>
 
 <div class='posted-by'></div>
