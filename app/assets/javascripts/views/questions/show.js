@@ -10,7 +10,9 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({ question: this.model }));
+    this.$el.html(this.template({
+      question: this.model
+    }));
 
     var authorView = new BlockOverhead.Views.PostedBy({
       model: this.model.author()

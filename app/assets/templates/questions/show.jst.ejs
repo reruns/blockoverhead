@@ -9,7 +9,9 @@
 
 <div id='question-data'>
   <pre id='question-body'>
-    <%= question.get('body') %>
+    <% if (question.get('body')) { %>
+    <%= Markdown.getSanitizingConverter().makeHtml(question.get('body')) %>
+    <% } %>
   </pre>
   <label>
     <strong>Tags:</strong>
