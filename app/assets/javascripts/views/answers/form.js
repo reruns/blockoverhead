@@ -6,11 +6,13 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    this.template = options.template;
+    this.edit = options.edit;
+    this.template = (this.edit ? JST['answers/edit'] : JST['answers/form']);
   },
 
   events: {
-    'click button':'submit'
+    'click button':'submit',
+    'click button#submit-edit':'submit'
   },
 
   submit: function(event) {
@@ -22,7 +24,12 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
     this.model.save({question_id: question.id}, {
       success: function() {
         that.collection.add(that.model, { merge: true });
-        that.remove();
+        if (that.edit) {
+          that.remove();
+        } else {
+          that.$el.find('textarea').val('');
+          that.model = new BlockOverhead.Models.Answer();
+        }
       }
     })
   }

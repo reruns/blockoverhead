@@ -1,22 +1,18 @@
-<form>
-  <label>
-    Title
-    <input type="text" name="question[title]" value="<%= question.get('title') %>">
-  </label><br>
+<label for='title'>Title</label>
+<input type="text" name="question[title]" value="<%= question.get('title') %>" id='title'>
 
-  <div class='wmd-panel'>
-    <div id='wmd-button-bar'></div>
-    <textarea class='wmd-input' name='question[body]' id='wmd-input'><%= question.get('body') %></textarea>
-  </div>
 
-  <% var tagString = ''; %>
-  <% question.tags().each( function(tag) { %>
-       <% tagString += tag.get('title') + ' '; %>
-  <%  }); %>
-  <label>
-    Tags
-    <input type="text" name="question[tags]" value='<%= tagString %>'>
-  </label>
+<div class='wmd-panel'>
+  <div id='wmd-button-bar'></div>
+  <textarea class='wmd-input' name='question[body]' id='wmd-input'><%= question.get('body') %></textarea>
+</div>
 
-  <input type="submit" value="Ask" class="submit">
-</form>
+<% var tagString = ''; %>
+<% question.tags().each( function(tag) { %>
+     <% tagString += tag.get('title') + ' '; %>
+<%  }); %>
+<label for='tags'>Tags:</label>
+<input type="text" name="question[tags]" value='<%= tagString %>' id='tags'>
+
+
+<input type="submit" value="Ask" class="submit">
