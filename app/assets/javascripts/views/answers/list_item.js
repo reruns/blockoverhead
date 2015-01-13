@@ -44,9 +44,7 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
       template: JST['answers/edit']
     });
     this.$el.prepend(view.render().$el);
-    var eConverter = Markdown.getSanitizingConverter();
-    var eEditor = new Markdown.Editor(eConverter, '-answer-'+this.model.id);
-    eEditor.run();
+    BlockOverhead.buildEditor('-answer-'+this.model.id);
   },
 
   accept: function(event) {

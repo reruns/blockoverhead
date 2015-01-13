@@ -56,9 +56,7 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       edit: true
     });
     this.$el.prepend(view.render().$el);
-    var eConverter = Markdown.getSanitizingConverter();
-    var eEditor = new Markdown.Editor(eConverter, '-question-'+this.model.id);
-    eEditor.run();
+    BlockOverhead.buildEditor('-question-'+this.model.id);
   }
 
 })
