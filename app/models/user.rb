@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   has_many :taggings, as: :taggable, dependent: :destroy
   has_many :tags, through: :taggings
 
+  has_attached_file :image, default_url: 'default_av.png'
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

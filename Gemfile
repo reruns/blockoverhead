@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'backbone-on-rails'
 gem 'underscore'
+
+gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk'
 
