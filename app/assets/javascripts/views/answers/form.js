@@ -16,7 +16,7 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
   },
 
   submit: function(event) {
-    event.preventDefault();
+    event && event.preventDefault();
     var that = this;
     var attrs = this.$el.serializeJSON();
     var question = this.collection.question;

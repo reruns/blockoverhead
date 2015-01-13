@@ -47,6 +47,10 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   },
 
   edit: function(event) {
+    if (BlockOverhead.editView) {
+      console.log('Quit it.');
+      return;
+    }
     event.preventDefault();
     this.$el.find('#question-title').empty();
     this.$el.find('#question-data').empty();
