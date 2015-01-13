@@ -1,8 +1,8 @@
 BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   template: JST['questions/show'],
   initialize: function() {
-    this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.answers(), 'add remove reset', this.render);
+    this.listenTo(this.model, 'sync', this.syncDraw);
+    this.listenTo(this.model.answers(), 'add remove reset', this.syncDraw);
   },
 
   events: {
@@ -10,11 +10,11 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({
-      question: this.model
-    }));
+    this.$el.html(this.template());
 
-    var authorView = new BlockOverhead.Views.PostedBy({
+    var questionInfo = new BlockOverhead.Views.ShowQuestionData({
+      model: this.model
+    }), authorView = new BlockOverhead.Views.PostedBy({
       model: this.model.author()
     }), commentsView = new BlockOverhead.Views.CommentList({
       collection: this.model.comments()
@@ -31,13 +31,38 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       template: JST['answers/form']
     });
 
-
     this.$el.find('.posted-by').html(authorView.render().$el);
     this.$el.find('.comments').html(commentsView.render().$el);
     this.$el.find('.likes').html(likesView.render().$el);
     this.$el.find('#answers').html(answersView.render().$el);
     this.$el.find('#tags').html(tagsView.render().$el);
     this.$el.find('#new-answer').html(answerForm.render().$el);
+
+    return this;
+  },
+
+  syncDraw: function() {
+    var questionInfo = new BlockOverhead.Views.ShowQuestionData({
+      model: this.model
+    }), authorView = new BlockOverhead.Views.PostedBy({
+      model: this.model.author()
+    }), commentsView = new BlockOverhead.Views.CommentList({
+      collection: this.model.comments()
+    }), answersView = new BlockOverhead.Views.AnswerList({
+      collection: this.model.answers(),
+      model: this.model.author()
+    }), likesView = new BlockOverhead.Views.LikesForm({
+      model: this.model
+    }), tagsView = new BlockOverhead.Views.SubTags({
+      collection: this.model.tags()
+    })
+
+    this.$el.find('#question-info').html(questionInfo.render().$el)
+    this.$el.find('.posted-by').html(authorView.render().$el);
+    this.$el.find('.comments').html(commentsView.render().$el);
+    this.$el.find('.likes').html(likesView.render().$el);
+    this.$el.find('#answers').html(answersView.render().$el);
+    this.$el.find('#tags').html(tagsView.render().$el);
 
     return this;
   },

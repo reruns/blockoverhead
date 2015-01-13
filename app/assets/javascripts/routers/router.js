@@ -42,6 +42,7 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
           template: JST['questions/form']
         });
     this._swapRoot(view);
+    
     var converter = Markdown.getSanitizingConverter();
     var editor = new Markdown.Editor(converter);
     editor.run();

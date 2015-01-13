@@ -1,0 +1,21 @@
+<div id='question-title'>
+  <h1><%= question.get('title') %></h1>
+  <strong id='views'>
+    <%= question.get('view_count') %> views
+  </strong>
+</div>
+
+<div id='question-data'>
+  <pre id='question-body'>
+    <% if (question.get('body')) { %>
+    <%= Markdown.getSanitizingConverter().makeHtml(question.get('body')) %>
+    <% } %>
+  </pre>
+  <label>
+    <strong>Tags:</strong>
+    <div id='tags'></div>
+  </label>
+  <% if (question.author().id === BlockOverhead.currentUser.id) { %>
+    <button class='edit'>Edit</button>
+  <% } %>
+</div>

@@ -1,5 +1,4 @@
 BlockOverhead.Views.QuestionForm = Backbone.View.extend({
-  tagName: 'form',
   events: {
     'click .submit':'submit'
   },

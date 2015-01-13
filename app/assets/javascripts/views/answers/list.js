@@ -1,20 +1,23 @@
 BlockOverhead.Views.AnswerList = Backbone.View.extend({
-  tagName: 'ul',
+  template: JST['answers/list'],
 
   initialize: function() {
     this.listenTo(this.collection, 'add remove reset', this.render)
   },
 
   render: function() {
-    this.$el.empty();
+    this.$el.html(this.template({
+      size: this.collection.length
+    }));
     var that = this;
+    var $list = this.$el.find('#answer-list');
     this.collection.each( function(answer) {
       var answerView = new BlockOverhead.Views.AnswerListItem({
         model: answer,
         collection: that.collection,
         owner: that.model
       });
-      that.$el.append(answerView.render().$el);
+      $list.append(answerView.render().$el);
     });
     return this;
   }
