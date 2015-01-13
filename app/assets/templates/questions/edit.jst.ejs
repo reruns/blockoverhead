@@ -6,9 +6,7 @@
 
   <div class='wmd-panel'>
     <div id='wmd-button-bar-2'></div>
-    <textarea class='wmd-input' name='question[body]' id='wmd-input-2'>
-      <%= question.get('body') %>
-    </textarea>
+    <textarea class='wmd-input' name='question[body]' id='wmd-input-2'><%= question.get('body') %></textarea>
   </div>
 
   <% var tagString = ''; %>
@@ -20,5 +18,5 @@
     <input type="text" name="question[tags]" value='<%= tagString %>'>
   </label>
 
-  <input type="submit" value="Edit" class="submit">
+  <input type="submit" value="Submit" class="submit">
 </form>

@@ -51,7 +51,13 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       collection: BlockOverhead.Collections.questions,
       template: JST['questions/edit']
     });
+    BlockOverhead.editView = view;
     this.$el.prepend(view.render().$el);
+    if (BlockOverhead.editView) {
+      var eConverter = Markdown.getSanitizingConverter();
+      var eEditor = new Markdown.Editor(eConverter, '-2');
+      eEditor.run();
+    }
   }
 
 })

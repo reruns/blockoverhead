@@ -55,12 +55,6 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     var converter = Markdown.getSanitizingConverter();
     var editor = new Markdown.Editor(converter);
     editor.run();
-
-    if (BlockOverhead.altForm) {
-      var eConverter = Markdown.getSanitizingConverter();
-      var eEditor = new Markdown.Editor(eConverter, '-2');
-      eEditor.run();
-    }
   },
 
   usersIndex: function() {

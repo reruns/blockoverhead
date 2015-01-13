@@ -11,7 +11,7 @@ window.BlockOverhead = {
 
     //TODO: maybe set up a view here for our navbar
     BlockOverhead.currentUser = new BlockOverhead.Models.User();
-    BlockOverhead.altForm = null;
+    BlockOverhead.editView = null;
     $.ajax({
       url: "/api/session",
       type: "GET",
