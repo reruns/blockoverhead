@@ -55,6 +55,17 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
 
     var converter = Markdown.getSanitizingConverter();
     var editor = new Markdown.Editor(converter);
+    editor.hooks.set("insertImageDialog", function(callback) {
+      alert("Please click okay to start scanning your brain...");
+      setTimeout(function () {
+        var prompt = "We have detected that you like cats. Do you want to insert an image of a cat?";
+        if (confirm(prompt))
+          callback("http://icanhascheezburger.files.wordpress.com/2007/06/schrodingers-lolcat1.jpg")
+          else
+            callback(null);
+          }, 2000);
+          return true; // tell the editor that we'll take care of getting the image url
+        });
     editor.run();
   },
 
