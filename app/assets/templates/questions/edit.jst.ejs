@@ -3,8 +3,8 @@
 
 
 <div class='wmd-panel'>
-  <div id='wmd-button-bar-2'></div>
-  <textarea class='wmd-input' name='question[body]' id='wmd-input-2'><%= question.get('body') %></textarea>
+  <div id='<%='wmd-button-bar-question-'+question.id%>'></div>
+  <textarea class='wmd-input' name='question[body]' id='<%='wmd-input-question-'+question.id%>'><%= question.get('body') %></textarea>
 </div>
 
 <% var tagString = ''; %>

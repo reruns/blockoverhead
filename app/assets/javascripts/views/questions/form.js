@@ -22,9 +22,9 @@ BlockOverhead.Views.QuestionForm = Backbone.View.extend({
     this.model.set(attrs);
     this.model.save({}, {
       success: function() {
-        BlockOverhead.editView = null;
         that.collection.add(that.model, { merge: true });
         if (that.edit) {
+          BlockOverhead.editView = null;
           that.remove();
         } else {
           Backbone.history.navigate('/questions/' + that.model.id, { trigger: true });

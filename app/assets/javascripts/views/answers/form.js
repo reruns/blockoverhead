@@ -26,6 +26,7 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
       success: function() {
         that.collection.add(that.model, { merge: true });
         if (that.edit) {
+          BlockOverhead.editView = null;
           that.remove();
         } else {
           that.$el.find('textarea').val('');

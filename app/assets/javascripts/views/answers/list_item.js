@@ -36,10 +36,6 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
   },
 
   edit: function(event) {
-    if (BlockOverhead.editView) {
-      console.log('Quit it.');
-      return;
-    }
     event.preventDefault();
     var view = new BlockOverhead.Views.AnswerForm({
       model: this.model,
@@ -48,9 +44,8 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
       template: JST['answers/edit']
     });
     this.$el.prepend(view.render().$el);
-    BlockOverhead.editView = view;
     var eConverter = Markdown.getSanitizingConverter();
-    var eEditor = new Markdown.Editor(eConverter, '-2');
+    var eEditor = new Markdown.Editor(eConverter, '-answer-'+this.model.id);
     eEditor.run();
   },
 

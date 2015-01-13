@@ -1,5 +1,5 @@
 <div class='wmd-panel'>
-    <div id='wmd-button-bar-2'></div>
-    <textarea class='wmd-input' name='answer[body]' id='wmd-input-2'><%= answer.get('body') %></textarea>
+    <div id='<%= 'wmd-button-bar-answer-' + answer.id%>'></div>
+    <textarea class='wmd-input' name='answer[body]' id='<%='wmd-input-answer-'+answer.id %>'><%= answer.get('body') %></textarea>
   </div>
 <button id='submit-edit'>Submit</button>

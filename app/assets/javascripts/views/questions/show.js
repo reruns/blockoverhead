@@ -47,10 +47,6 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
   },
 
   edit: function(event) {
-    if (BlockOverhead.editView) {
-      console.log('Quit it.');
-      return;
-    }
     event.preventDefault();
     this.$el.find('#question-title').empty();
     this.$el.find('#question-data').empty();
@@ -59,7 +55,6 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       collection: BlockOverhead.Collections.questions,
       edit: true
     });
-    BlockOverhead.editView = view;
     this.$el.prepend(view.render().$el);
     if (BlockOverhead.editView) {
       var eConverter = Markdown.getSanitizingConverter();
