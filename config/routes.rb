@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :questions, except: :destroy
     resources :tags, only: [:index, :show]
     resources :comments, only: [:show, :create]
-    resources :answers, only: [:show, :create]
+    resources :answers, only: [:show, :create, :update]
     resource :session, only: :show
     post '/answers/:id/accept', to: 'answers#accept'
     get '/unanswered', to: 'questions#unanswered'
