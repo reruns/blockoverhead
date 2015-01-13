@@ -53,17 +53,7 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
         view = new BlockOverhead.Views.QuestionShow({ model: question });
     this._swapRoot(view);
 
-    var converter = Markdown.getSanitizingConverter();
-    var editor = new Markdown.Editor(converter);
-    editor.hooks.set("insertImageDialog", function(callback) {
-      var img = prompt('Image URL?');
-      if (img)
-        callback(img)
-      else
-        callback(null);
-      return true; // tell the editor that we'll take care of getting the image url
-        });
-    editor.run();
+    BlockOverhead.buildEditor();
   },
 
   usersIndex: function() {
