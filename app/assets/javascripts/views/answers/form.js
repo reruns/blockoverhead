@@ -21,6 +21,7 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
     var attrs = this.$el.serializeJSON();
     var question = this.collection.question;
     this.model.set(attrs.answer);
+    this.model.author().set(BlockOverhead.currentUser);
     this.model.save({question_id: question.id}, {
       success: function() {
         that.collection.add(that.model, { merge: true });

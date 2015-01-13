@@ -45,13 +45,11 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
     });
     BlockOverhead.editView = view;
     this.$el.prepend(view.render().$el);
-    debugger;
     if (BlockOverhead.editView) {
       var eConverter = Markdown.getSanitizingConverter();
       var eEditor = new Markdown.Editor(eConverter, '-2');
       eEditor.run();
     }
-    this.$el.html(view.render().$el);
   },
 
   accept: function(event) {
