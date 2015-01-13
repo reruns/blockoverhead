@@ -53,7 +53,7 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     var view = new BlockOverhead.Views.QuestionForm({
       model: this.model,
       collection: BlockOverhead.Collections.questions,
-      template: JST['questions/edit']
+      edit: true
     });
     BlockOverhead.editView = view;
     this.$el.prepend(view.render().$el);

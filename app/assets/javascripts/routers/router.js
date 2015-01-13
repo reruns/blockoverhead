@@ -39,10 +39,10 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
         view = new BlockOverhead.Views.QuestionForm({
           model: question,
           collection: BlockOverhead.Collections.questions,
-          template: JST['questions/form']
+          edit: false
         });
     this._swapRoot(view);
-    
+
     var converter = Markdown.getSanitizingConverter();
     var editor = new Markdown.Editor(converter);
     editor.run();

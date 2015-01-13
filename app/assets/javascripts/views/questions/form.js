@@ -6,7 +6,8 @@ BlockOverhead.Views.QuestionForm = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    this.template = options.template;
+    this.edit = options.edit;
+    this.template = (this.edit ? JST['questions/edit'] : JST['questions/form']);
   },
 
   render: function() {
@@ -23,7 +24,11 @@ BlockOverhead.Views.QuestionForm = Backbone.View.extend({
       success: function() {
         BlockOverhead.editView = null;
         that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate('/questions/' + that.model.id, { trigger: true });
+        if (that.edit) {
+          that.remove();
+        } else {
+          Backbone.history.navigate('/questions/' + that.model.id, { trigger: true });
+        }
       }
     });
   }
