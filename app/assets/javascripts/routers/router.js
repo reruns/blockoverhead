@@ -38,7 +38,8 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     var question = new BlockOverhead.Models.Question(),
         view = new BlockOverhead.Views.QuestionForm({
           model: question,
-          collection: BlockOverhead.Collections.questions
+          collection: BlockOverhead.Collections.questions,
+          template: JST['questions/form']
         });
     this._swapRoot(view);
     var converter = Markdown.getSanitizingConverter();
@@ -50,6 +51,16 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     var question = BlockOverhead.Collections.questions.getOrFetch(id),
         view = new BlockOverhead.Views.QuestionShow({ model: question });
     this._swapRoot(view);
+
+    var converter = Markdown.getSanitizingConverter();
+    var editor = new Markdown.Editor(converter);
+    editor.run();
+
+    if (BlockOverhead.altForm) {
+      var eConverter = Markdown.getSanitizingConverter();
+      var eEditor = new Markdown.Editor(eConverter, '-2');
+      eEditor.run();
+    }
   },
 
   usersIndex: function() {

@@ -1,0 +1,24 @@
+<form>
+  <label>
+    Title
+    <input type="text" name="question[title]" value="<%= question.get('title') %>">
+  </label><br>
+
+  <div class='wmd-panel'>
+    <div id='wmd-button-bar-2'></div>
+    <textarea class='wmd-input' name='question[body]' id='wmd-input-2'>
+      <%= question.get('body') %>
+    </textarea>
+  </div>
+
+  <% var tagString = ''; %>
+  <% question.tags().each( function(tag) { %>
+       <% tagString += tag.get('title') + ' '; %>
+  <%  }); %>
+  <label>
+    Tags
+    <input type="text" name="question[tags]" value='<%= tagString %>'>
+  </label>
+
+  <input type="submit" value="Edit" class="submit">
+</form>

@@ -27,7 +27,8 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
       collection: this.model.tags()
     }), answerForm = new BlockOverhead.Views.AnswerForm({
       collection: this.model.answers(),
-      model: new BlockOverhead.Models.Answer()
+      model: new BlockOverhead.Models.Answer(),
+      template: JST['answers/form']
     });
 
 
@@ -47,7 +48,8 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     this.$el.find('#question-data').empty();
     var view = new BlockOverhead.Views.QuestionForm({
       model: this.model,
-      collection: BlockOverhead.Collections.questions
+      collection: BlockOverhead.Collections.questions,
+      template: JST['questions/edit']
     });
     this.$el.prepend(view.render().$el);
   }

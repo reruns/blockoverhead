@@ -1,8 +1,11 @@
 BlockOverhead.Views.QuestionForm = Backbone.View.extend({
   tagName: 'form',
-  template: JST['questions/form'],
   events: {
     'click .submit':'submit'
+  },
+
+  initialize: function(options) {
+    this.template = options.template;
   },
 
   render: function() {

@@ -39,7 +39,8 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
     event.preventDefault();
     var view = new BlockOverhead.Views.AnswerForm({
       model: this.model,
-      collection: this.collection
+      collection: this.collection,
+      template: JST['answers/edit']
     })
     this.$el.html(view.render().$el);
   },

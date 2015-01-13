@@ -9,9 +9,9 @@ window.BlockOverhead = {
       $navbar: $('#headnav')
     });
 
-    //TODO: Set up a view here for our navbar
-    // We need some way to get the current user up and keep track of it, though?
+    //TODO: maybe set up a view here for our navbar
     BlockOverhead.currentUser = new BlockOverhead.Models.User();
+    BlockOverhead.altForm = null;
     $.ajax({
       url: "/api/session",
       type: "GET",
