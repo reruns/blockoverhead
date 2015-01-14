@@ -1,15 +1,19 @@
-<label>
-  Location:
-  <input type="text" name="user[location]" value="<%=user.get('location') %>">
-</label>
+<label for='loc'>Location:</label>
+<input id='loc' type="text" name="user[location]" value="<%=user.get('location') %>">
+
 
 <% var tagString = ''; %>
 <% user.tags().each( function(tag) { %>
   <% tagString += tag.get('title') + ' '; %>
 <%  }); %>
-<label>
-  Tags:
-  <input type="text" name="user[tags]" value="<%= tagString %>">
+<label for='tags'>Tags:</label>
+<input id='tags' type="text" name="user[tags]" value="<%= tagString %>">
+
+<label for='input-user-av'>Avatar:</label>
+<input type="file" name="user[avatar]" id="input-user-av">
 </label>
+<br>
+<img src="" width="50" id="preview-post-image">
+<br>
 
 <button>Submit</button>
