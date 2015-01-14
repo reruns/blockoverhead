@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   has_attached_file :avatar, default_url: 'default_av.png'
-  validates_attachment_content_type :avatar, :content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
 
   after_initialize :ensure_session_token

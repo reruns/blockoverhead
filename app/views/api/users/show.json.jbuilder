@@ -24,3 +24,7 @@ if @user.answers
     end
   end
 end
+
+if @user.avatar
+  json.avatar asset_path(@user.avatar.url)
+end
