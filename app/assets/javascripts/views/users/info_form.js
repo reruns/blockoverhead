@@ -8,7 +8,8 @@ BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
   },
 
   events: {
-    'click button':'submit'
+    'click button':'submit',
+    'change #input-user-av':'fileInputChange'
   },
 
   submit: function(event) {
@@ -16,11 +17,39 @@ BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
     var attrs = this.$el.serializeJSON(),
         that = this;
     this.model.set(attrs);
+    debugger;
     this.model.save({}, {
       success: function() {
         that.remove();
       }
     })
+  },
+
+  fileInputChange: function(event){
+
+    var that = this;
+    var file = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      that._updatePreview(reader.result);
+      that.model._avatar = reader.result;
+
+      console.log(that.model);
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this._updatePreview("");
+      delete this.model._avatar;
+
+      console.log(this.model);
+    }
+  },
+
+  _updatePreview: function(src){
+    this.$el.find("#preview-post-image").attr("src", src);
   }
 
 })

@@ -19,7 +19,7 @@ module Api
     def update
       @user = User.find(params[:id])
       if @user.update(user_params)
-        parse_tags(@user, params[:user][:tags])
+        parse_tags(@user, params[:user][:tags]) if params[:user][:tags]
         render :show
       else
         flash.now[:errors] = @user.errors.full_messages
