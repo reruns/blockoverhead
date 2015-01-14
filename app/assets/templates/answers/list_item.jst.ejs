@@ -4,7 +4,7 @@
 <% } else if (owner && BlockOverhead.currentUser.id === owner.id){%>
   <button class='accept-answer'>Accept</button>
 <% } %>
-<pre><%= Markdown.getSanitizingConverter().makeHtml(answer.get('body')) %></pre>
+<pre class='answer-body'><%= Markdown.getSanitizingConverter().makeHtml(answer.get('body')) %></pre>
 
 <div class='posted-by'></div>
 <% if (BlockOverhead.currentUser.id === answer.author().id) { %>

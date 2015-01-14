@@ -73,7 +73,6 @@ nav#user > * {
 }
 
 nav#link-bar{
-  font-kerning: normal;
   background: #bbb;
 }
 
@@ -109,9 +108,18 @@ nav#link-bar > a{
 
 #modal {
   background: white;
-  position: absolute;
+  position: fixed;
   width: 300px;
   left: 300px;
   top: 150px;
   z-index: 9001;
+}
+
+#question-body {
+  width: 700px;
+  background: silver;
+}
+
+#question-body img, .answer-body img {
+  max-width: 100%;
 }

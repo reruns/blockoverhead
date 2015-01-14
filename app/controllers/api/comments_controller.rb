@@ -4,7 +4,7 @@ module Api
     def create
       @comment = current_user.comments.new(comment_params)
       if @comment.save
-        render json: @comment
+        render :show
       else
         render json: @comment.errors.full_messages, status: 422
       end
@@ -12,7 +12,7 @@ module Api
 
     def show
       @comment = Comment.find(params[:id])
-      render json: @comment
+      render :show
     end
 
     private
