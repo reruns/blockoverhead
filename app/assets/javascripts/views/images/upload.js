@@ -1,8 +1,13 @@
 BlockOverhead.Views.UploadImage = Backbone.View.extend({
+  tagName: 'form',
   template: JST['images/upload'],
 
   render: function() {
-    this.$el.append(this.template())
+    $('#modal').append(this.template())
+  },
+
+  initialize: function(options) {
+    this.callback = options.callback;
   },
 
   events: {
@@ -23,6 +28,7 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
   },
 
   fileInputChange: function(event){
+    console.log('changin');
 
     var that = this;
     var file = event.currentTarget.files[0];
@@ -46,7 +52,7 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
   },
 
   _updatePreview: function(src){
-    this.$el.find("#preview-post-image").attr("src", src);
+    this.$el.find("#preview-image").attr("src", src);
   }
 
 })
