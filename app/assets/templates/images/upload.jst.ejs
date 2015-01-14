@@ -1,6 +1,22 @@
-<input type="file" name="image[img]" id="input-image">
-<br>
-<img src="" width="50" id="preview-image">
-<br>
-
-<button>Submit</button>
+<div id='up-title' class='group'>
+  <h2>Add Image</h2>
+  <a id='close'>x</a>
+</div>
+<form>
+  <div class='form-data group'>
+    <div id='type-select'>
+      <label><input type="radio" name="location" value="local-up">From my computer</label>
+      <label><input type="radio" name="location" value="url-up">From the web</label>
+    </div>
+    <div id='local-up'>
+      <input type="file" name="image[img]" id="input-image">
+      <br>
+      <img src="" width="50" id="preview-image">
+      <br>
+    </div>
+    <div id='url-up' class='hidden'>
+      <input type="text" name="image[img_url]" value="" id='image-url'>
+    </div>
+  </div>
+  <button id='submit-img'>Add picture</button>
+</form>

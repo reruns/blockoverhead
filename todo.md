@@ -4,7 +4,8 @@ Backbone stuff:
   hopeful schedule ahaha
 
   add a cancel button to edit forms (duh)
-  add prod data for image uploading
+
+  Add URL uploading to the paperclip forms
 
   THUR:
   search + pagination

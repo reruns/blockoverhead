@@ -1,5 +1,5 @@
 BlockOverhead.Views.UploadImage = Backbone.View.extend({
-  tagName: 'form',
+  className: 'upload',
   template: JST['images/upload'],
 
   render: function() {
@@ -13,7 +13,10 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
 
   events: {
     'click button':'submit',
-    'change input#input-image':'fileInputChange'
+    'change input#input-image':'fileInputChange',
+    'change input#image-url':'urlInputChange',
+    'click a#local':'showLocal',
+    'click a#url':'showUrl'
   },
 
   submit: function(event) {
@@ -25,18 +28,18 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
       success: function() {
         that.remove();
         that.callback(that.model.get('img'));
+        $('#modal').addClass('hidden');
       }
     })
   },
 
   fileInputChange: function(event){
-    console.log('changin');
-
     var that = this;
     var file = event.currentTarget.files[0];
     var reader = new FileReader();
 
     reader.onloadend = function(){
+      debugger;
       that._updatePreview(reader.result);
       that.model._img = reader.result;
     }
@@ -49,8 +52,25 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
     }
   },
 
+  urlInputChange: function(event) {
+    var $tar = $(event.currentTarget)
+    this._updatePreview($tar.val())
+  },
+
   _updatePreview: function(src){
     this.$el.find("#preview-image").attr("src", src);
+  },
+
+  showLocal: function(event) {
+    event.preventDefault();
+    $('form#local-up').removeClass('hidden');
+    $('form#url-up').addClass('hidden');
+  },
+
+  showUrl: function(event) {
+    event.preventDefault();
+    $('form#url-up').removeClass('hidden');
+    $('form#local-up').addClass('hidden');
   }
 
 })

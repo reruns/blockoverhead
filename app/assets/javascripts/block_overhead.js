@@ -39,10 +39,7 @@ BlockOverhead.buildEditor = function(id) {
       callback: callback
     });
     $('#modal').append(view.render().$el);
-    //pop up a modal file picker dialog
-    //upload it!
-    //get the url and do callback(url)
-    //profit!
+    $('#modal').removeClass('hidden');
     return true;
   });
   editor.run();

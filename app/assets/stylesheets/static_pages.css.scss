@@ -100,21 +100,6 @@ nav#link-bar > a{
   margin: auto;
 }
 
-.group:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-#modal {
-  background: white;
-  position: fixed;
-  width: 300px;
-  left: 300px;
-  top: 150px;
-  z-index: 9001;
-}
-
 #question-body {
   width: 700px;
   background: silver;
@@ -122,4 +107,88 @@ nav#link-bar > a{
 
 #question-body img, .answer-body img {
   max-width: 100%;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#modal {
+  border: 1px solid #888;
+  background: white;
+  position: fixed;
+  width: 450px;
+  left: 50%;
+  transform: translateX(-225px);
+  top: 150px;
+  z-index: 9001;
+}
+
+.upload {
+  padding: 20px;
+}
+
+#up-title {
+  display: block;
+}
+
+#up-title > h2 {
+  float: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#up-title > a {
+  font-size: 14px;
+  text-align: center;
+  float: right;
+  color: white;
+  background: black;
+  width: 20px;
+  height: 20px;
+}
+
+#type-select {
+  display: block;
+  float: left;
+  width: 140px;
+  font-size: 14px;
+}
+
+#type-select > label{
+  padding: 3px 0;
+}
+
+#local-up, #url-up {
+  float: right;
+  margin: 5px;
+}
+
+.upload > a:hover {
+  cursor: pointer;
+}
+
+.form-data {
+  padding: 10px 0 25px 0;
+}
+
+.form-data input {
+  border: 1px solid #999;
+  padding: 3px;
+}
+
+#submit-img {
+  float: right;
+  background: #333;
+  color: white;
+  padding: 5px;
+  text-size: 18px;
+  border-radius: 2px 5px;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
 }
