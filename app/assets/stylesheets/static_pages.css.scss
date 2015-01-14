@@ -162,7 +162,9 @@ nav#link-bar > a{
 }
 
 #local-up, #url-up {
+  width: 250px;
   float: right;
+  height: 20px;
   margin: 5px;
 }
 
@@ -174,9 +176,11 @@ nav#link-bar > a{
   padding: 10px 0 25px 0;
 }
 
-.form-data input {
+#local-up > input, #url-up > input {
   border: 1px solid #999;
   padding: 3px;
+  float: right;
+  width: 200px;
 }
 
 #submit-img {
