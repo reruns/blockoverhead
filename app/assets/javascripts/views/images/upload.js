@@ -1,21 +1,19 @@
-BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
-  tagName: 'form',
-  template: JST['users/info_form'],
+BlockOverhead.Views.UploadImage = Backbone.View.extend({
+  template: JST['images/upload'],
 
   render: function() {
-    this.$el.html(this.template({ user: this.model }));
-    return this;
+    this.$el.append(this.template())
   },
 
   events: {
     'click button':'submit',
-    'change #input-user-av':'fileInputChange'
+    'change #input-img':'fileInputChange'
   },
 
   submit: function(event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON(),
-        that = this;
+    that = this;
     this.model.set(attrs);
     this.model.save({}, {
       success: function() {
@@ -32,7 +30,7 @@ BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
 
     reader.onloadend = function(){
       that._updatePreview(reader.result);
-      that.model._avatar = reader.result;
+      that.model._img = reader.result;
 
       console.log(that.model);
     }
@@ -41,7 +39,7 @@ BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
       reader.readAsDataURL(file);
     } else {
       this._updatePreview("");
-      delete this.model._avatar;
+      delete this.model._img;
 
       console.log(this.model);
     }
