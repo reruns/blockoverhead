@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:show, :create]
     resources :answers, only: [:show, :create, :update]
     resource :session, only: :show
+    resources :images, only: :create
     post '/answers/:id/accept', to: 'answers#accept'
     get '/unanswered', to: 'questions#unanswered'
     post '/likes', to: 'likes#toggle'

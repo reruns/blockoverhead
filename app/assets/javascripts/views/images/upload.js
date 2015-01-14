@@ -3,7 +3,8 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
   template: JST['images/upload'],
 
   render: function() {
-    $('#modal').append(this.template())
+    this.$el.html(this.template());
+    return this;
   },
 
   initialize: function(options) {
@@ -12,7 +13,7 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
 
   events: {
     'click button':'submit',
-    'change #input-img':'fileInputChange'
+    'change input#input-image':'fileInputChange'
   },
 
   submit: function(event) {
@@ -23,6 +24,7 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
     this.model.save({}, {
       success: function() {
         that.remove();
+        that.callback(that.model.get('img'));
       }
     })
   },
@@ -37,8 +39,6 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
     reader.onloadend = function(){
       that._updatePreview(reader.result);
       that.model._img = reader.result;
-
-      console.log(that.model);
     }
 
     if (file) {
@@ -46,8 +46,6 @@ BlockOverhead.Views.UploadImage = Backbone.View.extend({
     } else {
       this._updatePreview("");
       delete this.model._img;
-
-      console.log(this.model);
     }
   },
 

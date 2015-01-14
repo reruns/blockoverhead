@@ -34,11 +34,11 @@ BlockOverhead.buildEditor = function(id) {
 
   //set up the hook for uploading images
   editor.hooks.set("insertImageDialog", function(callback) {
-    var view = new BlockOverhead.Views.UploadImage({
+    view = new BlockOverhead.Views.UploadImage({
       model: new BlockOverhead.Models.Image(),
       callback: callback
     });
-    view.render();
+    $('#modal').append(view.render().$el);
     //pop up a modal file picker dialog
     //upload it!
     //get the url and do callback(url)

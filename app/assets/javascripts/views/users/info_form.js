@@ -19,6 +19,7 @@ BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
     this.model.set(attrs);
     this.model.save({}, {
       success: function() {
+        debugger;
         that.remove();
       }
     })
