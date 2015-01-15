@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, default_url: 'default_av.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  include PgSearch
+  pg_search_scope :search,
+                  against: :username,
+                  using: { tsearch: {prefix: true}}
 
   after_initialize :ensure_session_token
 

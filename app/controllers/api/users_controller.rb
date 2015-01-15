@@ -27,6 +27,11 @@ module Api
       end
     end
 
+    def search
+      @users = User.search(params[:query])
+      render json: @users
+    end
+
     private
     def user_params
       params.require(:user).permit(:username, :password, :location, :avatar)
