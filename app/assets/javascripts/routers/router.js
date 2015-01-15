@@ -85,6 +85,7 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
   taggedQuestions: function(tag) {
     var that = this;
     BlockOverhead.Collections.tags.fetch({
+      data: { page: 1 },
       success: function() {
         var t = BlockOverhead.Collections.tags.findWhere({ title: tag }),
             view = new BlockOverhead.Views.QuestionsIndex({ collection: t.questions() });

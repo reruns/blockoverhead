@@ -45,7 +45,9 @@ module Api
     def tagged
       tag = Tag.find_by(title: params[:tag])
       @questions = Question.joins(:tags).where(tags: {id: tag.id}).all
-      render json: @questions
+      render json: {models: @questions,
+                    page: params[:page],
+                    total_pages: @questions.total_pages}
     end
 
     def unanswered
@@ -58,7 +60,9 @@ module Api
       tag = Tag.search_by_title(qstring)
       if tag.empty?
         @questions = Question.search_by_info(qstring)
-        render json: @questions
+        render json: {models: @questions,
+                      page: params[:page],
+                      total_pages: @questions.total_pages}
       else
         render json: false
       end
