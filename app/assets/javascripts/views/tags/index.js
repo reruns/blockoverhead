@@ -2,7 +2,8 @@ BlockOverhead.Views.TagsIndex = Backbone.View.extend({
   template: JST['tags/index'],
 
   events: {
-    'keyup #tag-search':'filterList'
+    'keyup #tag-search':'filterList',
+    'click a.page':'changePage'
   },
 
   initialize: function() {
@@ -10,7 +11,10 @@ BlockOverhead.Views.TagsIndex = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({
+      page: this.collection.page,
+      pages: this.collection.total_pages
+    }));
     this.buildList();
     return this;
   },
@@ -44,5 +48,17 @@ BlockOverhead.Views.TagsIndex = Backbone.View.extend({
           }
       });
     }
+  },
+
+  changePage: function(event) {
+    var page = Number($(event.currentTarget).attr('id')),
+    that = this;
+    event.preventDefault();
+    this.collection.fetch({
+      data: {page: page},
+      success: function() {
+        that.render();
+      }
+    });
   }
 })

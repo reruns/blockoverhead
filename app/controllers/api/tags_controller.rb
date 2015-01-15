@@ -1,8 +1,10 @@
 module Api
   class TagsController < ApiController
     def index
-      @tags = Tag.all
-      render json: @tags
+      @tags = Tag.all.page(params[:page])
+      render json: {models: @tags,
+                    page: params[:page],
+                    total_pages: @tags.total_pages}
     end
 
     def show
@@ -11,8 +13,10 @@ module Api
     end
 
     def search
-      @tags = Tag.search_by_title(params[:query])
-      render json: @tags
+      @tags = Tag.search_by_title(params[:query]).page(params[:page])
+      render json: {models: @tags,
+                    page: params[:page],
+                    total_pages: @tags.total_pages}
     end
   end
 end

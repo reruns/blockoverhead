@@ -6,6 +6,8 @@ Backbone stuff:
   add a cancel button to edit forms (duh)
   make joindate timestamps not dumb
 
+  set up a second search that uses prefix so the in-page tags search is better
+  
   pagination
   Sorting questions
 

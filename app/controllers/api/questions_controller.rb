@@ -31,7 +31,6 @@ module Api
     end
 
     def update
-
       @question = Question.find(params[:id])
 
       if @question.update(question_params) && current_user == @question.user
@@ -44,7 +43,7 @@ module Api
 
     def tagged
       tag = Tag.find_by(title: params[:tag])
-      @questions = Question.joins(:tags).where(tags: {id: tag.id}).all
+      @questions = Question.joins(:tags).where(tags: {id: tag.id}).page(params[:page])
       render json: {models: @questions,
                     page: params[:page],
                     total_pages: @questions.total_pages}
@@ -59,7 +58,7 @@ module Api
       qstring = params[:query]
       tag = Tag.search_by_title(qstring)
       if tag.empty?
-        @questions = Question.search_by_info(qstring)
+        @questions = Question.search_by_info(qstring).page(params[:page])
         render json: {models: @questions,
                       page: params[:page],
                       total_pages: @questions.total_pages}

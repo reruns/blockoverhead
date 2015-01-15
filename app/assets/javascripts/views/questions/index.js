@@ -2,7 +2,7 @@ BlockOverhead.Views.QuestionsIndex = Backbone.View.extend({
   template: JST['questions/index'],
 
   events: {
-    'click a.page-link':'changePage'
+    'click a.page':'changePage'
   },
 
   initialize: function() {
@@ -26,11 +26,11 @@ BlockOverhead.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   changePage: function(event) {
+    event.preventDefault();
     var page = Number($(event.currentTarget).attr('id')),
         that = this;
-    event.preventDefault();
     this.collection.fetch({
-      data: {page: page}, 
+      data: {page: page},
       success: function() {
         that.render();
       }

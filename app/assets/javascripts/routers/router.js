@@ -85,12 +85,13 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
 
   taggedQuestions: function(tag) {
     var that = this;
-    BlockOverhead.Collections.tags.fetch({
-      data: { page: 1 },
-      success: function() {
-        var t = BlockOverhead.Collections.tags.findWhere({ title: tag }),
-            view = new BlockOverhead.Views.QuestionsIndex({ collection: t.questions() });
-        t.fetch();
+    $.ajax({
+      url: '/api/questions/tagged/',
+      data: {tag: tag, page: 1},
+      type: 'GET',
+      success: function(response) {
+        var ts = new BlockOverhead.Collections.Questions(response, {parse: true}),
+            view = new BlockOverhead.Views.QuestionsIndex({collection: ts});
         that._swapRoot(view);
       }
     });
@@ -118,7 +119,7 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
       $.ajax({
         url: '/api/search',
         type: 'GET',
-        data: {query: query},
+        data: {query: query, page: 1},
         success: function(response) {
           if (!response) {
             Backbone.history.navigate('/questions/tagged/'+query, {trigger: true });
