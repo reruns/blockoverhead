@@ -28,8 +28,7 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
 
   questionsIndex: function() {
     BlockOverhead.Collections.questions.fetch({
-      data: { page: 1 },
-      success: function() {}
+      data: { page: 1 }
     });
 
     var view = new BlockOverhead.Views.QuestionsIndex({
@@ -74,7 +73,9 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
   },
 
   tagsIndex: function() {
-    BlockOverhead.Collections.tags.fetch();
+    BlockOverhead.Collections.tags.fetch({
+      data: { page: 1 }
+    });
 
     var view = new BlockOverhead.Views.TagsIndex({
       collection: BlockOverhead.Collections.tags

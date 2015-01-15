@@ -1,26 +1,27 @@
 <ul id='questions-list'></ul>
 
-<% var pageList = [];
-  if (!pages) { return; }
-  if (pages <= 6 ) {
-    for (var i = 1; i <= pages; i++) {
-      pageList.push(i);
-    }
-  } else {
-    if (page <= 4) {
-      pageList = [1,2,3,4,5,0,pages];
-    } else if ((pages - page) <= 4) {
-      pageList = [1,0,pages-4,pages-3,pages-2,pages-1,pages];
+<div id='pages' class='group'>
+  <% var pageList = [];
+    if (!pages) { return; }
+    if (pages <= 6 ) {
+      for (var i = 1; i <= pages; i++) {
+        pageList.push(i);
+      }
     } else {
-      pageList = [1,0,page-2,page-1,page,page+1,page+2,0,pages];
+      if (page <= 4) {
+        pageList = [1,2,3,4,5,0,pages];
+      } else if ((pages - page) <= 4) {
+        pageList = [1,0,pages-4,pages-3,pages-2,pages-1,pages];
+      } else {
+        pageList = [1,0,page-2,page-1,page,page+1,page+2,0,pages];
+      }
     }
-  }
-  pageList.forEach( function(pageNum) {
-    if (pageNum == 0) {
-%>
-    <div class='page-space'>...</div>
-  <% } else if (pageNum == page) { %>
-    <div class='page-cur'><%=page%></div>
+    pageList.forEach( function(pageNum) {
+      if (pageNum == 0) { %>
+        <div class='page space'>...</div>
+    <% } else if (pageNum == page) { %>
+        <div class='page cur'><%=page%></div>
     <% } else {  %>
-      <a href='' class='page-link' id='<%= pageNum %>'><%=pageNum %></a>
+        <a href='' class='page link' id='<%= pageNum %>'><%=pageNum %></a>
     <% }}); %>
+</div>
