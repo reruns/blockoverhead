@@ -118,21 +118,25 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     $('#search-form').on('submit', function(event) {
       event.preventDefault();
       var query = $('input#search-bar').val();
-      $.ajax({
-        url: '/api/search',
-        type: 'GET',
-        data: {query: query, page: 1},
-        success: function(response) {
-          if (!response) {
-            Backbone.history.navigate('/questions/tagged/'+query, {trigger: true });
-          } else {
-            Backbone.history.navigate('/search?q='+query);
-            var qs = new BlockOverhead.Collections.Questions(response, { parse: true }),
-                view = new BlockOverhead.Views.QuestionsIndex({ collection: qs });
-            that._swapRoot(view);
+      if (query === '') {
+        Backbone.history.navigate('/questions', {trigger: true});
+      } else {
+        $.ajax({
+          url: '/api/search',
+          type: 'GET',
+          data: {query: query, page: 1},
+          success: function(response) {
+            if (!response) {
+              Backbone.history.navigate('/questions/tagged/'+query, {trigger: true });
+            } else {
+              Backbone.history.navigate('/search?q='+query);
+              var qs = new BlockOverhead.Collections.Questions(response, { parse: true }),
+                  view = new BlockOverhead.Views.QuestionsIndex({ collection: qs });
+              that._swapRoot(view);
+            }
           }
-        }
-      })
+        })
+      }
     });
   },
 

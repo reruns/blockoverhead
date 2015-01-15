@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get '/tags/search', to: 'tags#search'
+    get '/tags/psearch', to: 'tags#presearch'
     get '/users/search', to: 'users#search'
     get '/questions/tagged', to: 'questions#tagged'
     resources :users, except: [:destroy, :new, :create]

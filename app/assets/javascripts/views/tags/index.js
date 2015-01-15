@@ -71,7 +71,7 @@ BlockOverhead.Views.TagsIndex = Backbone.View.extend({
       that.buildList();
     } else {
       $.ajax({
-        url: '/api/tags/search',
+        url: '/api/tags/psearch',
         type: 'GET',
         data: {query: query, page: 1},
         success: function(response) {
