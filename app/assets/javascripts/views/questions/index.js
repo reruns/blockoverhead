@@ -1,18 +1,22 @@
 BlockOverhead.Views.QuestionsIndex = Backbone.View.extend({
-  tagName: 'ul',
+  template: JST['questions/index'],
 
   initialize: function() {
     this.listenTo(this.collection, 'add remove reset', this.render)
   },
 
   render: function() {
-    this.$el.empty();
+    this.$el.html(this.template({
+      page: this.collection.page,
+      total_pages: this.collection.total_pages
+    }));
+    var $list = this.$el.find('#questions-list');
     var that = this;
     this.collection.each(function(question) {
       var questionView = new BlockOverhead.Views.QuestionsIndexItem({
         model: question
       });
-      that.$el.append(questionView.render().$el);
+      $list.append(questionView.render().$el);
     });
     return this;
   }

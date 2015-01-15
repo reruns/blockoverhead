@@ -6,7 +6,6 @@ Backbone stuff:
   add a cancel button to edit forms (duh)
   make joindate timestamps not dumb
 
-  THUR:
   pagination
   Sorting questions
 

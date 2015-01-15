@@ -1,0 +1,29 @@
+<ul id='questions-list'></ul>
+
+<!-- Page nav cases:
+      There are <= 6 pages:
+        show them all
+      There are more than 6:
+        We're in the first 4:
+          show the first 5 ... last
+        We're in the last 4:
+          show first ... last 5
+        We're in the middle:
+          show first ... 5 around current ... last
+    Current page is not a link -->
+
+<% var pageList = [];
+  if (pages <= 6 ) {
+    for (var i = 1; i <= pages; i++) {
+      pageList.push(i);
+    }
+  } else {
+    if (page <= 4) {
+      pageList = [1,2,3,4,5,0,pages];
+    } else if ((pages - page) <= 4) {
+      pageList = [1,0,pages-4,pages-3,pages-2,pages-1,pages];
+    } else {
+      pageList = [1,0,page-2,page-1,page,page+1,page+2,0,pages];
+    }
+  }
+%>
