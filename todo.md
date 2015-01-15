@@ -5,11 +5,10 @@ Backbone stuff:
 
   add a cancel button to edit forms (duh)
 
-  Add URL uploading to the paperclip forms
-
   THUR:
-  search + pagination
-  Sorting questions  
+  pagination
+  searching for tags and users
+  Sorting questions
 
   FRI:
   Update index item templates to have a little more information

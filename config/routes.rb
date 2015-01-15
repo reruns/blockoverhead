@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/likes', to: 'likes#toggle'
 
   namespace :api, defaults: { format: :json } do
+    get '/tags/search', to: 'tags#search'
     resources :users, except: [:destroy, :new, :create]
     resources :questions, except: :destroy
     resources :tags, only: [:index, :show]
