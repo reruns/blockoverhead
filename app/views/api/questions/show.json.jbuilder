@@ -1,4 +1,6 @@
-json.extract! @question, :title, :body, :score, :view_count, :created_at
+json.extract! @question, :title, :body, :score, :view_count
+
+json.created_at @question.created_at.strftime('%H:%M:%S %m/%d/%Y')
 
 json.tags do
   json.array! @question.tags do |tag|
