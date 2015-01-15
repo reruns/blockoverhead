@@ -50,8 +50,10 @@ module Api
     end
 
     def unanswered
-      @questions = Question.includes(:answers).where(answers: {question_id: nil})
-      render json: @questions
+      @questions = Question.includes(:answers).where(answers: {question_id: nil}).page(params[:page])
+      render json: {models: @questions,
+                    page: params[:page],
+                    total_pages: @questions.total_pages}
     end
 
     def search

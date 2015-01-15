@@ -92,8 +92,8 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
       data: {tag: tag, page: 1},
       type: 'GET',
       success: function(response) {
-        var ts = new BlockOverhead.Collections.Questions(response, {parse: true}),
-            view = new BlockOverhead.Views.QuestionsIndex({collection: ts});
+        var ts = new BlockOverhead.Collections.Questions(response, { parse: true }),
+            view = new BlockOverhead.Views.QuestionsIndex({ collection: ts });
         that._swapRoot(view);
       }
     });
@@ -103,9 +103,10 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
     var that = this;
     $.ajax({
       url: '/api/unanswered',
+      data: {page: 1},
       type: 'GET',
       success: function(questionData) {
-        var uns = new BlockOverhead.Collections.Questions(questionData),
+        var uns = new BlockOverhead.Collections.Questions(questionData, { parse: true }),
             view = new BlockOverhead.Views.QuestionsIndex({ collection: uns });
         that._swapRoot(view);
       }
