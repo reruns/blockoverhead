@@ -1,4 +1,6 @@
-json.extract! @user, :username, :location, :created_at
+json.extract! @user, :username, :location
+
+json.created_at @user.created_at.strftime('%d %B %Y')
 
 if @user.tags
   json.tags do
