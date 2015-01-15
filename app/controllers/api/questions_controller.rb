@@ -18,8 +18,10 @@ module Api
     end
 
     def index
-      @questions = Question.all
-      render json: @questions
+      @questions = Question.all.page(params[:page])
+      render json: {models: @questions,
+                    page: params[:page],
+                    total_pages: @questions.total_pages}
     end
 
     def show

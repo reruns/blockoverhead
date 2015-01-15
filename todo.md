@@ -4,10 +4,10 @@ Backbone stuff:
   hopeful schedule ahaha
 
   add a cancel button to edit forms (duh)
+  make joindate timestamps not dumb
 
   THUR:
   pagination
-  searching for tags and users
   Sorting questions
 
   FRI:
