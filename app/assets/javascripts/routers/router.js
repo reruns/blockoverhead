@@ -125,10 +125,8 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
             Backbone.history.navigate('/questions/tagged/'+query, {trigger: true });
           } else {
             Backbone.history.navigate('/search?q='+query);
-            var qs = new BlockOverhead.Collections.Questions(response),
-            view = new BlockOverhead.Views.QuestionsIndex({
-              collection: qs
-            });
+            var qs = new BlockOverhead.Collections.Questions(response, { parse: true }),
+                view = new BlockOverhead.Views.QuestionsIndex({ collection: qs });
             that._swapRoot(view);
           }
         }

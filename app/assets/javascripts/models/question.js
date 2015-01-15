@@ -37,7 +37,6 @@ BlockOverhead.Models.Question = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    debugger;
     if (response.comments) {
       this.comments().set(response.comments, { parse: true });
       delete response.comments;
