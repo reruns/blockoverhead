@@ -4,7 +4,6 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
     @answer.score = 0;
-    #TODO: same as in comments
     @answer.save!
     redirect_to question_url(@answer.question)
   end
