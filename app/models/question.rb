@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search_by_info,
-                  against: [title: 'A', body: 'B'],
+                  against: [:title, :body],
                   using: { tsearch: {prefix: true, dictionary: 'english' }}
 
   belongs_to(:user, class_name: 'User',

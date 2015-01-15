@@ -11,6 +11,7 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
 
     this.$rootEl = options.$rootEl,
     this.$navbar = options.$navbar
+    this.enableSearch();
   },
 
   routes: {
@@ -100,6 +101,32 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
             view = new BlockOverhead.Views.QuestionsIndex({ collection: uns });
         that._swapRoot(view);
       }
+    });
+  },
+
+  enableSearch: function() {
+    //Personally I prefer this to putting it in a script tag on the page.
+    var that = this;
+    $('#search-form').on('submit', function(event) {
+      event.preventDefault();
+      var query = $('input#search-bar').val();
+      $.ajax({
+        url: '/api/search',
+        type: 'GET',
+        data: {query: query},
+        success: function(response) {
+          if (!response) {
+            Backbone.history.navigate('/questions/tagged/'+query, {trigger: true });
+          } else {
+            Backbone.history.navigate('/search?q='+query);
+            var qs = new BlockOverhead.Collections.Questions(response),
+            view = new BlockOverhead.Views.QuestionsIndex({
+              collection: qs
+            });
+            that._swapRoot(view);
+          }
+        }
+      })
     });
   },
 

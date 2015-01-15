@@ -8,7 +8,9 @@
 </head>
 <body>
   <nav id='user' class='group'>
-    <input type="text" id='search-bar' value="">
+    <form id='search-form'>
+      <input type="text" id='search-bar' value="">
+    </form>
     <% if signed_in? %>
       <a href='<%= user_url(current_user) %>'><%= current_user.username %></a>
       <%= button_to "Sign Out", session_url, :method => :delete %>
@@ -26,19 +28,5 @@
   </nav>
 
 <%= yield %>
-<script>
-  // probably better to make a submit button for this
-  // $('#search-bar').on('keyup', function(event) {
-  //   var query = $(event.currentTarget).val();
-  //   $.ajax({
-  //     url: '/api/search',
-  //     type: 'GET',
-  //     data: {query: query},
-  //     success: function(response) {
-  //       //
-  //     }
-  //   })
-  // });
-</script>
 </body>
 </html>

@@ -56,9 +56,9 @@ module Api
       tag = Tag.search_by_title(qstring)
       if tag.empty?
         @questions = Question.search_by_info(qstring)
-        render :index
+        render json: @questions
       else
-        redirect_to '#/questions/tagged/'+qstring
+        render json: false
       end
     end
 
