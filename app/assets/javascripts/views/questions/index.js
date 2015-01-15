@@ -8,7 +8,7 @@ BlockOverhead.Views.QuestionsIndex = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       page: this.collection.page,
-      total_pages: this.collection.total_pages
+      pages: this.collection.total_pages
     }));
     var $list = this.$el.find('#questions-list');
     var that = this;

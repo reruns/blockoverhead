@@ -1,18 +1,7 @@
 <ul id='questions-list'></ul>
 
-<!-- Page nav cases:
-      There are <= 6 pages:
-        show them all
-      There are more than 6:
-        We're in the first 4:
-          show the first 5 ... last
-        We're in the last 4:
-          show first ... last 5
-        We're in the middle:
-          show first ... 5 around current ... last
-    Current page is not a link -->
-
 <% var pageList = [];
+  if (!pages) { return; }
   if (pages <= 6 ) {
     for (var i = 1; i <= pages; i++) {
       pageList.push(i);
@@ -26,4 +15,12 @@
       pageList = [1,0,page-2,page-1,page,page+1,page+2,0,pages];
     }
   }
+  pageList.forEach( function(pageNum) {
+    if (pageNum == 0) {
 %>
+    <div class='page-space'>...</div>
+  <% } else if (pageNum == page) { %>
+    <div class='page-cur'><%=page%></div>
+    <% } else {  %>
+      <a href='#'><%=pageNum %></a>
+    <% }}); %>
