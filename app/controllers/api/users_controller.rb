@@ -2,8 +2,10 @@ module Api
   class UsersController < ApiController
 
     def index
-      @users = User.all
-      render json: @users
+      @users = User.all.page(params[:page])
+      render json: {models: @users,
+        page: params[:page],
+        total_pages: @users.total_pages}
     end
 
     def show
@@ -28,8 +30,10 @@ module Api
     end
 
     def search
-      @users = User.search(params[:query])
-      render json: @users
+      @users = User.search(params[:query]).page(params[:page])
+      render json: {models: @users,
+        page: params[:page],
+        total_pages: @users.total_pages}
     end
 
     private

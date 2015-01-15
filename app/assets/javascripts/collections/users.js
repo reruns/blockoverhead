@@ -17,6 +17,16 @@ BlockOverhead.Collections.Users = Backbone.Collection.extend({
       user.fetch();
     }
     return user;
+  },
+
+  parse: function(response) {
+    if (response.page) {
+      this.page = response.page;
+      this.total_pages = response.total_pages;
+      return response.models;
+    } else {
+      return Backbone.Collection.prototype.parse.call(this, response);
+    }
   }
 })
 

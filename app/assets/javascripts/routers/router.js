@@ -58,7 +58,9 @@ BlockOverhead.Routers.Router = Backbone.Router.extend({
   },
 
   usersIndex: function() {
-    BlockOverhead.Collections.users.fetch();
+    BlockOverhead.Collections.users.fetch( {
+      data: { page: 1 }
+    });
 
     var view = new BlockOverhead.Views.UsersIndex({
       collection: BlockOverhead.Collections.users
