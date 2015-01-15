@@ -36,6 +36,8 @@ gem 'underscore'
 gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'pg_search'
+gem 'kaminari'
 
 group :development do
   gem 'pry-rails'

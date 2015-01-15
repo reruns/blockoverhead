@@ -2,6 +2,11 @@ class Question < ActiveRecord::Base
   validates :title, :asker_id, :body, presence: true
   before_create :default_values
 
+  include PgSearch
+  pg_search_scope :search_by_info,
+                  against: [title: 'A', body: 'B'],
+                  using: { tsearch: {prefix: true, dictionary: 'english' }}
+
   belongs_to(:user, class_name: 'User',
              foreign_key: :asker_id, primary_key: :id)
 
@@ -19,6 +24,6 @@ class Question < ActiveRecord::Base
   private
   def default_values
     self.score ||= 0
-    self.view_count ||= 1
+    self.view_count ||= 0
   end
 end

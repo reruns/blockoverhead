@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :answers, only: [:show, :create, :update]
     resource :session, only: :show
     resources :images, only: :create
+    get '/search', to: 'questions#search'
     post '/answers/:id/accept', to: 'answers#accept'
     get '/unanswered', to: 'questions#unanswered'
     post '/likes', to: 'likes#toggle'

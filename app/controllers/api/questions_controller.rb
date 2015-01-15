@@ -51,6 +51,17 @@ module Api
       render json: @questions
     end
 
+    def search
+      qstring = params[:query]
+      tag = Tag.search_by_title(qstring)
+      if tag.empty?
+        @questions = Question.search_by_info(qstring)
+        render :index
+      else
+        redirect_to '#/questions/tagged/'+qstring
+      end
+    end
+
     private
     def question_params
       params.require(:question).permit(:title, :body)
