@@ -1,21 +1,22 @@
-<div id='question-title'>
+<div id='question-title' class='group'>
   <h1><%= question.get('title') %></h1>
   <strong id='views'>
     <%= question.get('view_count') %> views
   </strong>
 </div>
 
-<div id='question-data'>
-  <pre id='question-body'>
+<div id='question-data' class='group'>
+  <div class='likes'></div>
+  <div id='question-body'>
     <% if (question.get('body')) { %>
     <%= Markdown.getSanitizingConverter().makeHtml(question.get('body')) %>
     <% } %>
-  </pre>
-  <label>
-    <strong>Tags:</strong>
-    <div id='tags'></div>
-  </label>
-  <% if (question.author().id === BlockOverhead.currentUser.id) { %>
-    <button class='edit'>Edit</button>
-  <% } %>
+    <div class='meta group'>
+      <div id='tags'></div>
+      <div class='posted-by'></div>
+    </div>
+    <% if (question.author().id === BlockOverhead.currentUser.id) { %>
+      <button class='edit'>Edit</button>
+    <% } %>
+  </div>
 </div>

@@ -33,23 +33,37 @@ p.vote {
 }
 
 #views {
+  padding-right: 20px;
   display: block;
 }
 
-#question-title {
-  padding-left: 100px;
-  height: 60px;
+#tags {
+  display: block;
+  float: left;
 }
 
 #tags a {
-  background: #99f;
+  background: #DEE9F2;
   margin: 0 3px;
-  color: white;
+  color: #30599C;
+  font-size: 12px;
   padding: 2px 5px;
 }
 
-h1 {
-  font-size: 36px;
+.meta {
+  padding: 10px 0;
+}
+
+.posted-by {
+  float: right;
+  padding-right: 20px;
+}
+
+.comment-field {
+  margin-top: 10px;
+  width: 500px;
+  height: 100px;
+  display: block;
 }
 
 a {
@@ -116,25 +130,61 @@ nav#link-bar{
 }
 
 .comments {
-  background: #eee;
-  width: 600px;
+  padding-top: 20px;
+  width: 800px;
   margin-left: 100px;
 }
 
 .comment {
   display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
 }
 
 #main {
-  border: 1px solid gray;
   width: 900px;
   background: #fff;
   margin: auto;
 }
 
+#question-title {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+#question-title > h1 {
+  display: inline;
+  font-size: 24px;
+}
+
+#question-title > strong {
+  float: right;
+}
+
+.likes {
+  padding-top: 20px;
+  float: left;
+  display: block;
+}
+
 #question-body {
-  width: 700px;
-  background: silver;
+  padding-top: 20px;
+  display: block;
+  float: right;
+  width: 800px;
+  white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  white-space: pre-wrap;       /* css-3 */
+  word-wrap: normal;       /* Internet Explorer 5.5+ */
+  white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+  word-break: normal;
+  white-space: normal;
+}
+
+.add-comment {
+  font-size: 12px;
+  color: #aaa
 }
 
 #question-body img, .answer-body img {

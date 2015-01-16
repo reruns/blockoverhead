@@ -20,6 +20,7 @@ BlockOverhead.Views.CommentList = Backbone.View.extend({
   },
 
   comment: function(event) {
+    event.preventDefault();
     var view = new BlockOverhead.Views.CommentForm({
       collection: this.collection
     });
