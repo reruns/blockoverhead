@@ -1,5 +1,6 @@
 BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
   tagName: 'li',
+  className: 'answer',
   template: JST['answers/list_item'],
 
   events: {

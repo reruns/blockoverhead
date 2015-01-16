@@ -7,7 +7,7 @@ module Api
       @answer.score = 0
       @answer.question_id = params[:question_id]
       @answer.save!
-      render json: @answer
+      render :show
     end
 
     def update

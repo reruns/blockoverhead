@@ -1,13 +1,21 @@
-<div class='likes'></div>
-<% if (answer.get('accepted')) { %>
-  <strong>Accepted!</strong>
-<% } else if (owner && BlockOverhead.currentUser.id === owner.id){%>
-  <button class='accept-answer'>Accept</button>
-<% } %>
-<pre class='answer-body'><%= Markdown.getSanitizingConverter().makeHtml(answer.get('body')) %></pre>
+<div class='answer-data group'>
+  <div class='likes'></div>
 
-<div class='posted-by'></div>
-<% if (BlockOverhead.currentUser.id === answer.author().id) { %>
-  <button class='edit-answer'>edit</button>
-<% } %>
+  <div class='accept'>
+    <% if (answer.get('accepted')) { %>
+      <strong>Accepted!</strong>
+    <% } else if (owner && BlockOverhead.currentUser.id === owner.id){%>
+      <button class='accept-answer'>Accept</button>
+    <% } %>
+  </div>
+
+  <div class='answer-body'><%= Markdown.getSanitizingConverter().makeHtml(answer.get('body')) %>
+    <div class='meta group'>
+      <div class='posted-by'></div>
+    </div>
+    <% if (BlockOverhead.currentUser.id === answer.author().id) { %>
+      <button class='edit'>edit</button>
+    <% } %>
+  </div>
+</div>
 <section class='comments'></section>
