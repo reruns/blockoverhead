@@ -1,5 +1,6 @@
 BlockOverhead.Views.QuestionForm = Backbone.View.extend({
   tagName: 'form',
+  className: 'new-question',
 
   events: {
     'click .submit':'submit'

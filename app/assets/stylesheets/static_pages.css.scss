@@ -292,11 +292,11 @@ h2 {
   font-size: 20px;
 }
 
-#new-answer {
-  width: 400px;
+#new-answer, .new-question {
+  width: 0px;
 }
 
-#new-answer textarea {
+#new-answer textarea, .new-question textarea {
   width: 550px;
   background: white;
   height: 200px;
@@ -310,4 +310,18 @@ h2 {
   padding: 10px;
   border-radius: 3px;
   margin: 20px 100px;
+}
+
+.new-question > label {
+  padding: 20px 0;
+}
+
+.new-question > .submit {
+  display: block;
+  float: left;
+  font-size: 12px;
+  background: #1187FF;
+  border: 1px solid black;
+  color: white;
+  border-radius: 3px;
 }

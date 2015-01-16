@@ -1,6 +1,6 @@
-<label for='title'>Title</label>
-<input type="text" name="question[title]" value="<%= question.get('title') %>" id='title'>
-
+<label id='title'>Title
+  <input type="text" name="question[title]" value="<%= question.get('title') %>" id='title'>
+</label>
 
 <div class='wmd-panel'>
   <div id='wmd-button-bar'></div>
@@ -11,7 +11,8 @@
 <% question.tags().each( function(tag) { %>
      <% tagString += tag.get('title') + ' '; %>
 <%  }); %>
-<label for='tags'>Tags:</label>
-<input type="text" name="question[tags]" value='<%= tagString %>' id='tags'>
+<label id='tags'>Tags
+  <input type="text" name="question[tags]" value='<%= tagString %>' id='tags'>
+</label>
 
-<input type="submit" value="Ask" class="submit">
+<input type="submit" value="Ask" class="submit" id='question-button'>
