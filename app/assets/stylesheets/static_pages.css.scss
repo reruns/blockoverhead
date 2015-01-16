@@ -154,6 +154,9 @@ nav#link-bar{
 
 #question-title > h1 {
   display: inline;
+}
+
+h1 {
   font-size: 24px;
 }
 
@@ -373,4 +376,23 @@ h2 {
   background: orange;
   color: white;
   border: none;
+}
+
+h1#username {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+#user-data img {
+  width: 125px;
+  display: block;
+}
+
+#user-data {
+  padding: 10px 0;
+}
+
+.user-show h2 {
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
 }

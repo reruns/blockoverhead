@@ -20,9 +20,13 @@ BlockOverhead.Collections.Questions = Backbone.Collection.extend({
   },
 
   parse: function(response) {
-    this.page = response.page;
-    this.total_pages = response.total_pages;
-    return response.models;
+    if (response.page) {
+      this.page = response.page;
+      this.total_pages = response.total_pages;
+      return response.models;
+    } else {
+      return Backbone.Collection.prototype.parse.call(this, response);
+    }
   }
 }),
 

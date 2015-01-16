@@ -13,7 +13,7 @@ end
 if @user.questions
   json.questions do
     json.array! @user.questions do |question|
-      json.extract! question, :id, :title, :score
+      json.extract! question, :id, :title, :score, :view_count
     end
   end
 end
@@ -22,7 +22,7 @@ if @user.answers
   json.answers do
     json.array! @user.answers do |answer|
       json.extract! answer, :id, :score
-      json.extract! answer.question, :title
+      json.extract! answer.question, :title, :view_count
     end
   end
 end

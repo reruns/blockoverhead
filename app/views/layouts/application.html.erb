@@ -11,7 +11,7 @@
     <div id='user-inner' class='group'>
       <% if signed_in? %>
         <%= link_to "Sign Out", session_url, :method => :delete %>
-        <a href='<%= user_url(current_user) %>'><%= current_user.username %></a>
+        <a href='<%= '/#/users/' + current_user.id.to_s %>'><%= current_user.username %></a>
       <% else %>
         <a href="<%= new_session_url %>">Sign In</a>
         <a href="<%= new_user_url %>">Sign Up</a>

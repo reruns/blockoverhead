@@ -10,6 +10,7 @@ BlockOverhead.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   render: function() {
+    debugger;
     this.$el.html(this.template({
       page: this.collection.page,
       pages: this.collection.total_pages
