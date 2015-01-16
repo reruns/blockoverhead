@@ -292,7 +292,11 @@ h2 {
   font-size: 20px;
 }
 
-#new-answer, .new-question {
+#new-answer{
+  width: 400px;
+}
+
+.new-question {
   width: 0px;
 }
 
@@ -324,4 +328,49 @@ h2 {
   border: 1px solid black;
   color: white;
   border-radius: 3px;
+}
+
+#questions-list{
+  border-top: 1px solid #ccc;
+}
+
+.list-question {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.question-left {
+  float: left;
+  width: 150px;
+}
+
+.q-votes {
+  text-align: center;
+  float: left;
+}
+
+.q-views {
+  text-align: center;
+  float: right;
+}
+
+.question-right {
+  float: right;
+  width: 650px;
+}
+
+#pages {
+  padding-top: 10px;
+}
+
+#pages > .page {
+  display: inline;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+}
+
+#pages > .cur {
+  background: orange;
+  color: white;
+  border: none;
 }

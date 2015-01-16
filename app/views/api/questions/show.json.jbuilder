@@ -25,6 +25,8 @@ json.answers do
   json.array! @question.answers do |answer|
     json.extract! answer, :id, :body, :score, :accepted
 
+    json.created_at answer.created_at.strftime('%H:%M:%S %m/%d/%Y')
+
     json.user do
       json.extract! answer.user, :id, :username
     end

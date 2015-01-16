@@ -1,1 +1,2 @@
-<strong>Posted by <%= author.get('username') %></strong>
+<strong>Posted by</strong> <a href='<%= '#/users/'+ author.id %>'><%= author.get('username') %></a>
+<div class='date'><%= timestamp %></div>

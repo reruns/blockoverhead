@@ -1,1 +1,7 @@
-<a href=<%= "#/questions/"+ question.id %>><%= question.get('title') %></a>
+<div class='question-left group'>
+  <div class='q-votes'><%= question.get('score') %><br>votes </div>
+  <div class='q-views'><%= question.get('view_count') %><br>views </div>
+</div>
+<div class='question-right'>
+  <a href=<%= "#/questions/"+ question.id %>><%= question.get('title') %></a>
+</div>

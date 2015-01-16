@@ -24,7 +24,8 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     var questionInfo = new BlockOverhead.Views.ShowQuestionData({
       model: this.model
     }), authorView = new BlockOverhead.Views.PostedBy({
-      model: this.model.author()
+      model: this.model.author(),
+      timestamp: this.model.get('created_at')
     }), commentsView = new BlockOverhead.Views.CommentList({
       collection: this.model.comments()
     }), answersView = new BlockOverhead.Views.AnswerList({

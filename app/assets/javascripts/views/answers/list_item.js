@@ -23,7 +23,8 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
     );
 
     var authorView = new BlockOverhead.Views.PostedBy({
-      model: this.model.author()
+      model: this.model.author(),
+      timestamp: this.model.get('created_at')
     }), commentsView = new BlockOverhead.Views.CommentList({
       collection: this.model.comments()
     }), likesView = new BlockOverhead.Views.LikesForm({
