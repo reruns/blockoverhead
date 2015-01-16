@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.integer  "responder_id",                 null: false
     t.integer  "question_id",                  null: false
     t.integer  "score",                        null: false
-    t.string   "body",                         null: false
+    t.text     "body",                         null: false
     t.boolean  "accepted",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20150114154722) do
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   null: false
-    t.string   "commentable_type", null: false
+    t.text     "commentable_type", null: false
     t.integer  "author_id",        null: false
-    t.string   "body",             null: false
+    t.text     "body",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.boolean  "positive",      null: false
     t.integer  "liker_id",      null: false
     t.integer  "likeable_id",   null: false
-    t.string   "likeable_type", null: false
+    t.text     "likeable_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150114154722) do
 
   create_table "questions", force: true do |t|
     t.integer  "asker_id",   null: false
-    t.string   "title",      null: false
-    t.string   "body",       null: false
+    t.text     "title",      null: false
+    t.text     "body",       null: false
     t.integer  "view_count", null: false
     t.integer  "score",      null: false
     t.datetime "created_at"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20150114154722) do
   create_table "taggings", force: true do |t|
     t.integer  "taggable_id",   null: false
     t.integer  "tag_id",        null: false
-    t.string   "taggable_type", null: false
+    t.text     "taggable_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,16 +85,16 @@ ActiveRecord::Schema.define(version: 20150114154722) do
   add_index "taggings", ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "title",      null: false
+    t.text     "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "username",            null: false
-    t.string   "location"
-    t.string   "password_digest",     null: false
-    t.string   "session_id",          null: false
+    t.text     "username",            null: false
+    t.text     "location"
+    t.text     "password_digest",     null: false
+    t.text     "session_id",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
