@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul, li, pre, h1, h2, a, p, body {
+ul, li, pre, h1, h2, a, p, body, div {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -42,12 +42,10 @@ p.vote {
 }
 
 #tags a {
-  background: #55f;
+  background: #99f;
   margin: 0 3px;
   color: white;
-  text-shadow: 1px 0 0 #000;
   padding: 2px 5px;
-  border-radius: 5px;
 }
 
 h1 {
@@ -63,31 +61,58 @@ body {
 }
 
 nav#user{
-  background: #0b0
+  background: #000;
+  height: 30px;
+}
+
+div#user-inner {
+  width: 900px;
+  margin: auto;
 }
 
 input#search-bar {
-  float: left;
-  color: red;
+  float: right;
   width: 150px;
-  margin: 20px;
+  margin-top: 5px;
 }
 
-nav#user > a {
+#user-inner > a {
+  vertical-align: center;
+  text-align: center;
+  font-size: 12px;
+  color: white;
   float: right;
-  width: 30px;
-  padding: 0 20px;
+  padding: 8px 10px;
+  margin-left: 30px;
+}
+
+#user-inner > a:hover {
+  background: #444;
 }
 
 nav#link-bar{
-  background: #bbb;
+  display: block;
+  width: 900px;
+  margin: auto;
+  padding: 40px 0;
 }
 
-nav#link-bar > a{
+#link-inner {
   float: right;
-  margin: 0 10px;
-  padding: 10px 20px;
-  border: 1px solid black;
+}
+
+#link-inner > a {
+  font-size: 14px;
+  float: left;
+  display: block;
+  padding: 5px;
+  color: white;
+  background: gray;
+  margin-left: 20px;
+}
+
+#link-inner > a:hover {
+  background: orange;
 }
 
 .comments {

@@ -7,24 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav id='user' class='group'>
-    <form id='search-form'>
-      <input type="text" id='search-bar' value="">
-    </form>
-    <% if signed_in? %>
-      <a href='<%= user_url(current_user) %>'><%= current_user.username %></a>
-      <%= button_to "Sign Out", session_url, :method => :delete %>
-    <% else %>
-      <a href="<%= new_session_url %>">Sign In</a>
-      <a href="<%= new_user_url %>">Sign Up</a>
-    <% end %>
+  <nav id='user'>
+    <div id='user-inner' class='group'>
+      <% if signed_in? %>
+        <%= link_to "Sign Out", session_url, :method => :delete %>
+        <a href='<%= user_url(current_user) %>'><%= current_user.username %></a>
+      <% else %>
+        <a href="<%= new_session_url %>">Sign In</a>
+        <a href="<%= new_user_url %>">Sign Up</a>
+      <% end %>
+      <form id='search-form'>
+        <input type="text" id='search-bar' placeholder='Search for Questions'>
+      </form>
+    </div>
   </nav>
   <nav id='link-bar' class='group'>
-    <a href='/#/questions'>Questions</a>
-    <a href='/#/tags'>Tags</a>
-    <a href='/#/users'>Users</a>
-    <a href='/#/unanswered'>Unanswered</a>
-    <a href='/#/ask'>Ask</a>
+    <div id='link-inner' class='group'>
+      <a href='/#/questions'>Questions</a>
+      <a href='/#/tags'>Tags</a>
+      <a href='/#/users'>Users</a>
+      <a href='/#/unanswered'>Unanswered</a>
+      <a href='/#/ask'>Ask</a>
+    </div>
   </nav>
 
 <%= yield %>
