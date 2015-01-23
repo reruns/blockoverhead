@@ -18,6 +18,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def demo
+    @user = User.new {
+      username: 'guest',
+      password: '123456',
+    }
+    # create some questions and answers I guess
+    # create answers
+  end
+
   def show
     @user = User.find(params[:id])
   end
