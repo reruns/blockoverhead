@@ -16,24 +16,26 @@ Rails.application.routes.draw do
   post '/likes', to: 'likes#toggle'
 
   namespace :api, defaults: { format: :json } do
-    resources :users, except: [:destroy, :new, :create]
     get '/users/search', to: 'users#search'
+    resources :users, except: [:destroy, :new, :create]
 
-    resources :questions, except: :destroy
-    get '/questions/tagged', to: 'questions#tagged'
     get '/search', to: 'questions#search'
+    get '/questions/tagged', to: 'questions#tagged'
     get '/unanswered', to: 'questions#unanswered'
+    resources :questions, except: :destroy
 
-    resources :tags, only: [:index, :show]
+
     get '/tags/search', to: 'tags#search'
     get '/tags/psearch', to: 'tags#presearch'
+    resources :tags, only: [:index, :show]
+
 
     resources :comments, only: [:show, :create]
     resources :answers, only: [:show, :create, :update]
     post '/answers/:id/accept', to: 'answers#accept'
 
     post '/likes', to: 'likes#toggle'
-    
+
     resource :session, only: :show
     resources :images, only: :create
   end

@@ -1,18 +1,19 @@
-<h1>Sign Up</h1>
 
 <%= render "layouts/errors" %>
 
-<form action="<%= users_url %>" method="post">
+<form id='new-user' action="<%= users_url %>" method="post">
+  <h1>Sign Up</h1>
   <%= auth_token_input %>
   <label>
-    Username
+    <div class='lbl-text'>Username</div>
     <input type="text" name="user[username]" value="">
   </label>
 
   <label>
-    Password
+    <div class='lbl-text'>Password</div>
     <input type="password" name="user[password]" value="">
   </label>
 
   <input type="submit" value="Sign Up">
 </form>
+<%= button_to 'Sign in as Guest', '/users/demo' %>
