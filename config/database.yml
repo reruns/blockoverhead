@@ -22,8 +22,14 @@ default: &default
   pool: 5
 
 development:
-  <<: *default
-  database: BlockOverhead_development
+  adapter: postgresql
+  database: db/development
+  username: Reruns
+  password: Tap^1172441
+  host: localhost
+  encoding: UTF8
+  pool: 5
+  timeout: 5000
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

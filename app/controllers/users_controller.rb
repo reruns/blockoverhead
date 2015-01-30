@@ -19,10 +19,7 @@ class UsersController < ApplicationController
   end
 
   def demo
-    @user = User.new {
-      username: 'guest',
-      password: '123456',
-    }
+    @user = User.new({username: 'guest', password: '123456'})
     # create some questions and answers I guess
     # create answers
   end

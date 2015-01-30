@@ -14,3 +14,8 @@
  *= require wmd
  *= require_self
  */
+
+#logo > img {
+  height: 50px;
+  width: auto;
+}
