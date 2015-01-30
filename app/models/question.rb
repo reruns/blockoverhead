@@ -10,12 +10,12 @@ class Question < ActiveRecord::Base
   belongs_to(:user, class_name: 'User',
              foreign_key: :asker_id, primary_key: :id)
 
-  has_many :comments, as: :commentable
-  has_many :likes, as: :likeable
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
 
-  has_many(:answers, class_name: 'Answer',
+  has_many(:answers, class_name: 'Answer', dependent: :destroy,
            foreign_key: :question_id, primary_key: :id)
-  has_many(:views, class_name: 'View',
+  has_many(:views, class_name: 'View', dependent: :destroy,
            foreign_key: :question_id, primary_key: :id)
 
   has_many :taggings, as: :taggable, dependent: :destroy

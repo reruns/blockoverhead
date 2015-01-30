@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   #AN EMBARASSMENT OF ASSOCIATIONS
-  has_many(:questions, class_name: 'Question',
+  has_many(:questions, class_name: 'Question', dependent: :destroy,
            foreign_key: :asker_id, primary_key: :id)
-  has_many(:answers, class_name: 'Answer',
+  has_many(:answers, class_name: 'Answer', dependent: :destroy,
            foreign_key: :responder_id, primary_key: :id)
-  has_many(:comments, class_name: 'Comment',
+  has_many(:comments, class_name: 'Comment', dependent: :destroy,
            foreign_key: :author_id, primary_key: :id)
   has_many(:views, class_name: 'View',
            foreign_key: :viewer_id, primary_key: :id)

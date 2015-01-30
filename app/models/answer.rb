@@ -9,7 +9,7 @@ class Answer < ActiveRecord::Base
              foreign_key: :question_id, primary_key: :id)
 
 
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
   has_many :likes, as: :likeable
 
   private

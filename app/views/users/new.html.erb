@@ -1,19 +1,23 @@
 
 <%= render "layouts/errors" %>
-
-<form id='new-user' action="<%= users_url %>" method="post">
+<div id="new-user">
   <h1>Sign Up</h1>
-  <%= auth_token_input %>
-  <label>
-    <div class='lbl-text'>Username</div>
-    <input type="text" name="user[username]" value="">
-  </label>
 
-  <label>
-    <div class='lbl-text'>Password</div>
-    <input type="password" name="user[password]" value="">
-  </label>
+  <form action="<%= users_url %>" method="post">
+    <%= auth_token_input %>
+    <label>
+      <div class='lbl-text'>Username</div>
+      <input type="text" name="user[username]" value="">
+    </label>
 
-  <input type="submit" value="Sign Up">
-</form>
-<%= button_to 'Sign in as Guest', '/users/demo' %>
+    <label>
+      <div class='lbl-text'>Password</div>
+      <input type="password" name="user[password]" value="">
+    </label>
+
+    <input id='submit' type="submit" value="Sign Up">
+  </form>
+  <div id='guest'>
+  <%= button_to 'Sign in as Guest', '/users/demo' %>
+  </div>
+</div>
