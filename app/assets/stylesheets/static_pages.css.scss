@@ -42,12 +42,16 @@ p.vote {
   float: left;
 }
 
-#tags a {
+#tags a, #tags-list a {
   background: #DEE9F2;
   margin: 0 3px;
   color: #30599C;
   font-size: 12px;
   padding: 2px 5px;
+}
+
+#tags-list li {
+  padding-top: 2px;
 }
 
 .meta {

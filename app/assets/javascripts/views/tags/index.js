@@ -36,7 +36,7 @@ BlockOverhead.Views.TagsIndex = Backbone.View.extend({
     var pageList = [],
     pages = this.collection.total_pages,
     page = this.collection.page,
-    $pages = this.$el.find('#page-nav');
+    $pages = this.$el.find('#pages');
     $pages.empty();
     if (!pages) return;
     if (pages <= 6) {
