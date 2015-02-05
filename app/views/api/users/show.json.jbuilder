@@ -21,8 +21,8 @@ end
 if @user.answers
   json.answers do
     json.array! @user.answers do |answer|
-      json.extract! answer, :id, :score
-      json.extract! answer.question, :title, :view_count
+      json.extract! answer, :score
+      json.extract! answer.question, :id, :title, :view_count
     end
   end
 end
