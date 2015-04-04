@@ -30,6 +30,10 @@ BlockOverhead.Views.QuestionForm = Backbone.View.extend({
         } else {
           Backbone.history.navigate('/questions/' + that.model.id, { trigger: true });
         }
+      },
+      error: function() {
+        console.log('hm');
+        window.location = '/session/new';
       }
     });
   }

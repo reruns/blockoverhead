@@ -32,6 +32,10 @@ BlockOverhead.Views.AnswerForm = Backbone.View.extend({
           that.$el.find('textarea').val('');
           that.model = new BlockOverhead.Models.Answer();
         }
+      },
+      error: function() {
+        console.log('hm');
+        window.location = '/session/new';
       }
     })
   }

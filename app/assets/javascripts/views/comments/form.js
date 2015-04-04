@@ -24,6 +24,10 @@ BlockOverhead.Views.CommentForm = Backbone.View.extend({
       }, { success: function() {
         that.collection.add(comment, { merge: true });
         that.remove();
+      },
+      error: function() {
+        console.log('hm');
+        window.location = '/session/new';
       }
     });
   },
