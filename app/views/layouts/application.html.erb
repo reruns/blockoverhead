@@ -9,6 +9,7 @@
 <body>
   <nav id='user'>
     <div id='user-inner' class='group'>
+      <div id="pagename"><a href="www.blockoverhead.com">Block Overhead</a></div>
       <% if signed_in? %>
         <%= link_to "Sign Out", session_url, :method => :delete %>
         <a href='<%= '/#/users/' + current_user.id.to_s %>'><%= current_user.username %></a>

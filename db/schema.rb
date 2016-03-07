@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
-  add_index "answers", ["responder_id"], name: "index_answers_on_responder_id", using: :btree
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["responder_id"], name: "index_answers_on_responder_id"
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   null: false
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id"
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
 
   create_table "images", force: true do |t|
     t.datetime "created_at"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.datetime "updated_at"
   end
 
-  add_index "likes", ["liker_id"], name: "index_likes_on_liker_id", using: :btree
+  add_index "likes", ["liker_id"], name: "index_likes_on_liker_id"
 
   create_table "questions", force: true do |t|
     t.integer  "asker_id",   null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.datetime "updated_at"
   end
 
-  add_index "questions", ["asker_id"], name: "index_questions_on_asker_id", using: :btree
+  add_index "questions", ["asker_id"], name: "index_questions_on_asker_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "taggable_id",   null: false
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.datetime "updated_at"
   end
 
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-  add_index "taggings", ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id"], name: "index_taggings_on_taggable_id"
 
   create_table "tags", force: true do |t|
     t.text     "title",      null: false
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20150114154722) do
     t.datetime "updated_at"
   end
 
-  add_index "views", ["question_id"], name: "index_views_on_question_id", using: :btree
-  add_index "views", ["viewer_id"], name: "index_views_on_viewer_id", using: :btree
+  add_index "views", ["question_id"], name: "index_views_on_question_id"
+  add_index "views", ["viewer_id"], name: "index_views_on_viewer_id"
 
 end

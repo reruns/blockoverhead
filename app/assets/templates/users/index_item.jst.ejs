@@ -1,1 +1,6 @@
+<% if (user.get('avatar')) { %>
+  <img class='user-list-img' src='<%= user.get('avatar') %>' alt="">
+<% } else {%>
+  <img class='user-list-img' src='/assets/default_av.png' alt="">
+<% } %>
 <a href=<%= "#/users/"+ user.id %>><%= user.get('username') %></a>

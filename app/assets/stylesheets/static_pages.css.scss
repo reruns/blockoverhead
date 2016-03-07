@@ -93,7 +93,7 @@ input#search-bar {
   margin-top: 5px;
 }
 
-#user-inner > a {
+#user-inner  a {
   vertical-align: center;
   text-align: center;
   font-size: 12px;
@@ -103,7 +103,12 @@ input#search-bar {
   margin-left: 30px;
 }
 
-#user-inner > a:hover {
+div#pagename {
+  float: left;
+  display: inline;
+}
+
+#user-inner a:hover {
   background: #444;
 }
 
@@ -399,4 +404,25 @@ h1#username {
 .user-show h2 {
   border-bottom: 1px solid #ccc;
   padding-top: 10px;
+}
+
+.user-list-img {
+  height: 36px;
+  width: auto;
+  display: inline;
+  float: left;
+}
+
+ul#users-list > li {
+  height: 36px;
+  display: inline-block;
+  padding: 15px;
+}
+
+ul#users-list > li > a {
+  color: black;
+  height: 36px;
+  display: inline-block;
+  padding-top: 7px;
+  padding-left: 10px;
 }

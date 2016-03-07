@@ -28,7 +28,7 @@ gem 'tzinfo-data'
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.11', :require => 'bcrypt'
 
 gem 'backbone-on-rails'
 gem 'underscore'
@@ -45,6 +45,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'byebug'
   gem 'quiet_assets'
+  gem 'sqlite3'
 end
 
 gem 'rails_12factor', group: :production
