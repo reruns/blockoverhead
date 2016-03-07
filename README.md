@@ -1,6 +1,6 @@
 Description
 =======
-Block Overhead is a (lightly) fighting game themed clone of Stack Overflow. It is a Backbone.js app consuming a RESTful Rails API.
+[Block Overhead](http://www.blockoverhead.com "Block Overhead") is a (lightly) fighting game themed clone of Stack Overflow. It is a Backbone.js app consuming a RESTful Rails API.
 
 Highlights
 ======
