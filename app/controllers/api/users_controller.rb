@@ -3,9 +3,11 @@ module Api
 
     def index
       @users = User.all.page(params[:page])
-      render json: {models: @users,
-        page: params[:page],
-        total_pages: @users.total_pages}
+      @page = params[:page]
+      # render json: {models: @users,
+      #   page: params[:page],
+      #   total_pages: @users.total_pages}
+      render :index
     end
 
     def show

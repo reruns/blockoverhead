@@ -1,6 +1,4 @@
 <% if (user.get('avatar')) { %>
   <img class='user-list-img' src='<%= user.get('avatar') %>' alt="">
-<% } else {%>
-  <img class='user-list-img' src='/assets/default_av.png' alt="">
 <% } %>
 <div><%= user.get('username') %></div>

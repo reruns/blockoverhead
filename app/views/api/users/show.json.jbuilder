@@ -29,4 +29,6 @@ end
 
 if @user.avatar
   json.avatar asset_path(@user.avatar.url)
+else
+  json.avatar image_path('default_av.png')
 end
