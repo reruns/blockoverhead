@@ -413,13 +413,19 @@ h1#username {
   float: left;
 }
 
-ul#users-list > li {
+ul#users-list > a {
   height: 36px;
   display: inline-block;
-  padding: 15px;
+  padding: 8px;
+  margin: 10px;
+  background: #DEE9F2;
 }
 
-ul#users-list > li > a {
+ul#users-list > a:hover {
+  background: #CCC;
+}
+
+ul#users-list div{
   color: black;
   height: 36px;
   display: inline-block;
