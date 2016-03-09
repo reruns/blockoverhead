@@ -1,7 +1,7 @@
 BlockOverhead.Views.CommentList = Backbone.View.extend({
   template: JST['comments/list'],
   initialize: function() {
-    this.listenTo(this.collection, 'add remove reset', this.render)
+    this.listenTo(this.collection, 'sync', this.render)
   },
   events: {
     'click .add-comment':'comment'
