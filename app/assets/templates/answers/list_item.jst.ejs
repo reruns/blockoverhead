@@ -1,5 +1,4 @@
 <div class='answer-data group'>
-  <div class='likes'></div>
 
   <div class='accept'>
     <% if (answer.get('accepted')) { %>
@@ -8,6 +7,8 @@
       <button class='accept-answer'>Accept</button>
     <% } %>
   </div>
+
+  <div class='likes'></div>
 
   <div class='answer-body'><%= Markdown.getSanitizingConverter().makeHtml(answer.get('body')) %>
     <div class='meta group'>
