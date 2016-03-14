@@ -11,10 +11,10 @@
     <div id='user-inner' class='group'>
       <div id="pagename"><a href="/#">Block Overhead</a></div>
       <% if signed_in? %>
-        <%= link_to "Sign Out", session_url, :method => :delete %>
+        <a rel="nofollow" href="/session" data-method="delete">Sign Out</a>
         <a href='<%= '/#/users/' + current_user.id.to_s %>'><%= current_user.username %></a>
       <% else %>
-        <a href="<%= new_session_url %>">Sign In</a>
+        <a class="return" href="<%= new_session_url %>">Sign In</a>
         <a href="<%= new_user_url %>">Sign Up</a>
       <% end %>
       <form id='search-form'>

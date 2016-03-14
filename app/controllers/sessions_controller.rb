@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    session[:return_to] = cookies["return_to"]
   end
 
   def create
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
     )
     if user
       sign_in(user)
-      redirect_to root_url
+      redirect_back_or_default(root_url)
     else
       flash.now[:errors] = ["Invalid username or password"]
       render :new
@@ -18,6 +19,12 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to new_session_url
+    session[:return_to] = cookies["return_to"]
+    redirect_back_or_default(root_url)
+  end
+
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
   end
 end

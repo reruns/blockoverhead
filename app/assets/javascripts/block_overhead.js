@@ -24,10 +24,6 @@ window.BlockOverhead = {
   }
 };
 
-$(document).ready(function(){
-  BlockOverhead.initialize();
-});
-
 BlockOverhead.buildEditor = function(id) {
   var converter = Markdown.getSanitizingConverter();
   var editor = new Markdown.Editor(converter, id);
@@ -44,3 +40,11 @@ BlockOverhead.buildEditor = function(id) {
   });
   editor.run();
 }
+
+$(document).ready(function(){
+  BlockOverhead.initialize();
+});
+
+$("a.return").click(function(){
+  document.cookie = "return_to="+window.location.href;
+});
