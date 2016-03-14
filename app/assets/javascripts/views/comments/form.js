@@ -26,7 +26,6 @@ BlockOverhead.Views.CommentForm = Backbone.View.extend({
         that.remove();
       },
       error: function() {
-        console.log('hm');
         window.location = '/session/new';
       }
     });

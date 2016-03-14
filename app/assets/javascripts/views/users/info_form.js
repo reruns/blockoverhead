@@ -33,8 +33,6 @@ BlockOverhead.Views.UserInfoForm = Backbone.View.extend({
     reader.onloadend = function(){
       that._updatePreview(reader.result);
       that.model._avatar = reader.result;
-
-      console.log(that.model);
     }
 
     if (file) {

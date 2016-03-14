@@ -36,7 +36,6 @@ BlockOverhead.Views.QuestionShow = Backbone.View.extend({
     }), tagsView = new BlockOverhead.Views.SubTags({
       collection: this.model.tags()
     })
-    console.log(this.model)
 
     this.$el.find('#question-info').html(questionInfo.render().$el)
     this.$el.find('.posted-by').html(authorView.render().$el);
