@@ -43,8 +43,7 @@ BlockOverhead.buildEditor = function(id) {
 
 $(document).ready(function(){
   BlockOverhead.initialize();
-});
-
-$("a.return").click(function(){
-  document.cookie = "return_to="+window.location.href;
+  $("a.return").click(function(){
+    document.cookie = "return_to="+window.location.href;
+  });
 });
