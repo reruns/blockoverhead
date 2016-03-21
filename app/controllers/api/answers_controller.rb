@@ -24,6 +24,16 @@ module Api
       render :show
     end
 
+    def destroy
+      @answer = Answer.find(params[:id])
+      if current_user == @answer.user
+        @answer.destroy
+        render json: {}, status: 200
+      else
+        render json: @answer.errors.full_messages, status: 422
+      end
+    end
+
     def accept
       @answer = Answer.find(params[:id])
       @answer.question.answers.each do |answer|

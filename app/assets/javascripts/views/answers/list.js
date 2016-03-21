@@ -2,7 +2,7 @@ BlockOverhead.Views.AnswerList = Backbone.View.extend({
   template: JST['answers/list'],
 
   initialize: function() {
-    this.listenTo(this.collection, 'sync', this.render)
+    this.listenTo(this.collection, 'sync destroy', this.render)
   },
 
   render: function() {

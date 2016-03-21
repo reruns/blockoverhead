@@ -15,6 +15,16 @@ module Api
       render :show
     end
 
+    def destroy
+      @comment = Comment.find(params[:id])
+      if @comment.author == current_user
+        @comment.destroy
+        render json: {}, status: 200
+      else
+        render @comment.errors.full_messages, status: 400
+      end
+    end
+
     private
     def comment_params
       params.require(:comment).permit(:commentable_id, :commentable_type, :body)

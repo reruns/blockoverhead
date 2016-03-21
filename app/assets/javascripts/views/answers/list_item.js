@@ -5,7 +5,8 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
 
   events: {
     'click .edit-answer':'edit',
-    'click .accept-answer':'accept'
+    'click .accept-answer':'accept',
+    'click .delete-answer':'delete'
   },
 
   initialize: function(options) {
@@ -47,6 +48,11 @@ BlockOverhead.Views.AnswerListItem = Backbone.View.extend({
     });
     this.$el.prepend(view.render().$el);
     BlockOverhead.buildEditor('-answer-'+this.model.id);
+  },
+
+  delete: function(event) {
+    event.preventDefault();
+    this.model.destroy()
   },
 
   accept: function(event) {
